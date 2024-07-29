@@ -35,7 +35,10 @@
 
 
 
-async function calculatetax(amount, years, months) {
+async function calculatetax(amount, totalmonate) {
+
+    // console.log(amount + " " + years + " " + months)
+
     // Fetch the JSON data
     const response = await fetch("./tarifs.json");
     const json = await response.json();
@@ -43,8 +46,9 @@ async function calculatetax(amount, years, months) {
     // Round up the amount to the nearest 100
     amount = Math.ceil(amount / 100) * 100;
 
-    const totalmonate = (parseInt(years) + parseInt(months))
+    console.log("gerundet: " + amount)
 
+    // let totalmonate = months
 
     // Loop through the JSON data to find a matching amount
     for (const element of json) {
@@ -96,15 +100,17 @@ async function calculatetax(amount, years, months) {
                 endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.5))
             } else if (totalmonate < 204) {
                 endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.55))
-            } else if (totalmonate < 204) {
+            } else if (totalmonate >= 204) {
                 endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.60))
             }
 
-            endresult = Math.round(endresult / 0.05) * 0.05 // Auf 5 Rappen runden
+            endresult = (Math.round(endresult / 0.05) * 0.05).toFixed(2) // Auf 5 Rappen runden
+
+            console.log(totalmonate)
+            console.log(endresult)
 
             return endresult; // Return the corresponding value if a match is found
         }
     }
-
-    return "Fehler"; // Default return if no match is found
+    return "#Fehler bei der Berechnung#"; // Default return if no match is found
 }

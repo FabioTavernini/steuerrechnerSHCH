@@ -64,8 +64,8 @@
             <div class="form-group row">
                 <label for="txtverkaufspreis" class="col-sm-4 col-form-label">Verkaufspreis</label>
                 <div class="input-group col-sm-4">
-                    <input type="number" class="form-control" id="txtverkaufspreis" onchange="calcGSG()" placeholder=""
-                        required>
+                    <input type="number" class="form-control" min="0" id="txtverkaufspreis" onchange="calcGSG()"
+                        placeholder="" required>
                     <div class="input-group-append">
                         <span class="input-group-text">CHF</span>
                     </div>
@@ -75,8 +75,8 @@
             <div class="form-group row">
                 <label for="txterwerbspreis" class="col-sm-4 col-form-label">Erwerbspreis + Aufwendungen</label>
                 <div class="input-group col-sm-4">
-                    <input type="number" class="form-control" id="txterwerbspreis" onchange="calcGSG()" placeholder=""
-                        required>
+                    <input type="number" min="0" class="form-control" id="txterwerbspreis" onchange="calcGSG()"
+                        placeholder="" required>
                     <div class="input-group-append">
                         <span class="input-group-text">CHF</span>
                     </div>
@@ -99,12 +99,13 @@
                     <input type="number" class="form-control" id="txtjahre" placeholder="Jahre" required>
                 </div>
                 <div class="input-group col-sm-2">
-                    <input type="number" class="form-control" id="txtmonate" placeholder="Monate" min="0" max="12"  oninvalid="this.setCustomValidity('Anzahl Monate, 0 bis 11')"  required>
+                    <input type="number" class="form-control" id="txtmonate" placeholder="Monate" min="0" max="11"
+                        required>
                 </div>
             </div>
 
             <div class="form-group row">
-                <div class="col-sm-4">
+                <div class="mb-2">
                     <button class="btn btn-primary" onclick="abschluss()">Berechnen</button>
                 </div>
             </div>
@@ -149,16 +150,17 @@
     async function abschluss() {
 
         const taxableamount = document.getElementById('txtgrundstückgewinn').value;
-        jahre = document.getElementById('txtjahre').value;
-        monate = document.getElementById('txtmonate').value;
+        let jahre = Number(document.getElementById('txtjahre').value);
+        let monate = Number(document.getElementById('txtmonate').value);
 
         let efftax = 0;
 
-        if (taxableamount != '' && jahre != '' && monate != '' && monate <= 11) {
+        if (taxableamount != '' && jahre != null && monate != null && monate <= 11) {
             if (taxableamount >= 5000 && taxableamount <= 100000) {
 
-                jahre = jahre * 12
-                efftax = await calculatetax(taxableamount, jahre, monate); // Await the result of calculatetax
+                let totalmonths = (jahre * 12) + monate;
+
+                efftax = await calculatetax(taxableamount, totalmonths); // Await the result of calculatetax
 
             } else if (taxableamount > 100000) {
                 efftax = taxableamount * 0.15; // If over 100,000 -> 15% tax
@@ -172,4 +174,5 @@
     }
 
 </script>
+
 </html>
