@@ -1,7 +1,3 @@
-
-
-
-
 //Zuschlag:
 // Art. 120 Abs. 2 StG:
 // 2 Die gemäss Abs. 1 berechnete Steuer erhöht sich bei einer anrechenbaren Besitzesdauer von weniger
@@ -16,7 +12,6 @@
 // 4 - 4½ Jahren um 10 %
 // 4½ - 5 Jahren um 5 %
 
-
 // ermässigung
 // 6 Jahren um 5 %
 // 7 Jahren um 10 %
@@ -30,8 +25,6 @@
 // 15 Jahren um 50 %
 // 16 Jahren um 55 %
 // 17 Jahren um 60 %
-
-
 
 
 function calculateAddTax(steuerschuld, totalmonate) {
@@ -85,18 +78,10 @@ function calculateAddTax(steuerschuld, totalmonate) {
 
     endresult = (Math.round(endresult / 0.05) * 0.05).toFixed(2) // Auf 5 Rappen runden
 
-    console.log(totalmonate)
-    console.log(endresult)
-
     return endresult; // Return the corresponding value if a match is found
 }
 
-
-
 async function calculatetax(amount, totalmonate) {
-
-    // console.log(amount + " " + years + " " + months)
-
     // Fetch the JSON data
     const response = await fetch("./tarifs.json");
     const json = await response.json();
@@ -104,19 +89,14 @@ async function calculatetax(amount, totalmonate) {
     // Round up the amount to the nearest 100
     amount = Math.ceil(amount / 100) * 100;
 
-    console.log("gerundet: " + amount)
-
     // let totalmonate = months
 
     // Loop through the JSON data to find a matching amount
     for (const element of json) {
         if (amount == element[0]) {
-
             return calculateAddTax(element[1], totalmonate)
-
         }
     }
-
 
     return "#Fehler bei der Berechnung#"; // Default return if no match is found
 }

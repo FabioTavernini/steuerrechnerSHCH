@@ -159,12 +159,10 @@
         if (taxableamount != '' && (jahre != undefined) && (monate != undefined) && monate <= 11) {
             if (taxableamount >= 5000 && taxableamount <= 100000) {
 
-                console.log("weniger als 100k, mehr als 5k, " + totalmonths + " monate")
                 efftax = await calculatetax(taxableamount, totalmonths); // Await the result of calculatetax
 
             } else if (taxableamount > 100000) {
                 taxableamount = taxableamount * 0.15; // If over 100,000 -> 15% tax
-                console.log("mehr als 100k, " + totalmonths + " monate")
                 efftax = calculateAddTax(taxableamount, totalmonths)
             } else {
                 efftax = 0; // If less than 5000 -> 0
