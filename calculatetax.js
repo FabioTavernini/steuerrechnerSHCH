@@ -34,6 +34,64 @@
 
 
 
+function calculateAddTax(steuerschuld, totalmonate) {
+    if (totalmonate < 6) { //ZUSCHLAG
+        endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.5))
+    } else if (totalmonate < 12) {
+        endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.45))
+    } else if (totalmonate < 18) {
+        endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.4))
+    } else if (totalmonate < 24) {
+        endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.35))
+    } else if (totalmonate < 30) {
+        endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.3))
+    } else if (totalmonate < 36) {
+        endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.25))
+    } else if (totalmonate < 42) {
+        endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.2))
+    } else if (totalmonate < 48) {
+        endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.15))
+    } else if (totalmonate < 54) {
+        endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.1))
+    } else if (totalmonate < 60) {
+        endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.05))
+    } else if (totalmonate < 72) { //ERMÄSSIGUNG ab 6 vollen Jahren
+        endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.00))
+    } else if (totalmonate < 84) {
+        endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.05))
+    } else if (totalmonate < 96) {
+        endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.10))
+    } else if (totalmonate < 108) {
+        endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.15))
+    } else if (totalmonate < 120) {
+        endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.20))
+    } else if (totalmonate < 132) {
+        endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.25))
+    } else if (totalmonate < 144) {
+        endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.30))
+    } else if (totalmonate < 156) {
+        endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.35))
+    } else if (totalmonate < 168) {
+        endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.40))
+    } else if (totalmonate < 180) {
+        endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.45))
+    } else if (totalmonate < 192) {
+        endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.5))
+    } else if (totalmonate < 204) {
+        endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.55))
+    } else if (totalmonate >= 204) {
+        endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.60))
+    }
+
+    endresult = (Math.round(endresult / 0.05) * 0.05).toFixed(2) // Auf 5 Rappen runden
+
+    console.log(totalmonate)
+    console.log(endresult)
+
+    return endresult; // Return the corresponding value if a match is found
+}
+
+
 
 async function calculatetax(amount, totalmonate) {
 
@@ -54,63 +112,11 @@ async function calculatetax(amount, totalmonate) {
     for (const element of json) {
         if (amount == element[0]) {
 
-            steuerschuld = element[1];
+            return calculateAddTax(element[1], totalmonate)
 
-            if (totalmonate < 6) { //ZUSCHLAG
-                endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.5))
-            } else if (totalmonate < 12) {
-                endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.45))
-            } else if (totalmonate < 18) {
-                endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.4))
-            } else if (totalmonate < 24) {
-                endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.35))
-            } else if (totalmonate < 30) {
-                endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.3))
-            } else if (totalmonate < 36) {
-                endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.25))
-            } else if (totalmonate < 42) {
-                endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.2))
-            } else if (totalmonate < 48) {
-                endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.15))
-            } else if (totalmonate < 54) {
-                endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.1))
-            } else if (totalmonate < 60) {
-                endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.05))
-            } else if (totalmonate < 72) { //ERMÄSSIGUNG ab 6 vollen Jahren
-                endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.00))
-            } else if (totalmonate < 84) {
-                endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.05))
-            } else if (totalmonate < 96) {
-                endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.10))
-            } else if (totalmonate < 108) {
-                endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.15))
-            } else if (totalmonate < 120) {
-                endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.20))
-            } else if (totalmonate < 132) {
-                endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.25))
-            } else if (totalmonate < 144) {
-                endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.30))
-            } else if (totalmonate < 156) {
-                endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.35))
-            } else if (totalmonate < 168) {
-                endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.40))
-            } else if (totalmonate < 180) {
-                endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.45))
-            } else if (totalmonate < 192) {
-                endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.5))
-            } else if (totalmonate < 204) {
-                endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.55))
-            } else if (totalmonate >= 204) {
-                endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.60))
-            }
-
-            endresult = (Math.round(endresult / 0.05) * 0.05).toFixed(2) // Auf 5 Rappen runden
-
-            console.log(totalmonate)
-            console.log(endresult)
-
-            return endresult; // Return the corresponding value if a match is found
         }
     }
+
+
     return "#Fehler bei der Berechnung#"; // Default return if no match is found
 }
