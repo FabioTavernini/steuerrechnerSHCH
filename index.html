@@ -70,7 +70,7 @@
             <div class="form-group row">
                 <label for="txtverkaufspreis" class="col-sm-4 col-form-label">Verkaufspreis</label>
                 <div class="input-group col-sm-4">
-                    <input type="text" class="form-control" id="txtverkaufspreis" onchange="calcGSG()" placeholder=""
+                    <input type="number" class="form-control" id="txtverkaufspreis" onchange="calcGSG()" placeholder=""
                         required>
                     <div class="input-group-append">
                         <span class="input-group-text">CHF</span>
@@ -81,7 +81,7 @@
             <div class="form-group row">
                 <label for="txterwerbspreis" class="col-sm-4 col-form-label">Erwerbspreis + Aufwendungen</label>
                 <div class="input-group col-sm-4">
-                    <input type="text" class="form-control" id="txterwerbspreis" onchange="calcGSG()" placeholder=""
+                    <input type="number" class="form-control" id="txterwerbspreis" onchange="calcGSG()" placeholder=""
                         required>
                     <div class="input-group-append">
                         <span class="input-group-text">CHF</span>
@@ -92,7 +92,7 @@
             <div class="form-group row">
                 <label for="txtgrundstückgewinn" class="col-sm-4 col-form-label">Grundstückgewinn</label>
                 <div class="input-group col-sm-4">
-                    <input type="text" class="form-control" id="txtgrundstückgewinn" placeholder="" required disabled>
+                    <input type="number" class="form-control" id="txtgrundstückgewinn" placeholder="" required disabled>
                     <div class="input-group-append">
                         <span class="input-group-text">CHF</span>
                     </div>
@@ -102,10 +102,10 @@
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Anrechenbare Besitzdauer</label>
                 <div class="input-group col-sm-2">
-                    <input type="text" class="form-control" id="txtjahre" placeholder="Jahre" required>
+                    <input type="number" class="form-control" id="txtjahre" placeholder="Jahre" required>
                 </div>
                 <div class="input-group col-sm-2">
-                    <input type="text" class="form-control" id="txtmonate" placeholder="Monate" required>
+                    <input type="number" class="form-control" id="txtmonate" placeholder="Monate" min="0" max="12"  oninvalid="this.setCustomValidity('Anzahl Monate, 0 bis 11')"  required>
                 </div>
             </div>
 
@@ -162,7 +162,7 @@
 
         let efftax = 0;
 
-        if (taxableamount != '' && jahre != '' && monate != '') {
+        if (taxableamount != '' && jahre != '' && monate != '' && monate <= 11) {
             if (taxableamount >= 5000 && taxableamount <= 100000) {
 
                 jahre = jahre * 12
