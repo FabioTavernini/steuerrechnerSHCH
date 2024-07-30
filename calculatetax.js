@@ -4,20 +4,17 @@ function showresults(efftax) {
     gemeinde = document.getElementById('slgemeinde').value;
     konfession = document.getElementById('slkonfession').value;
 
-    document.getElementById('txteinfachesteuer').value = efftax;
+    document.getElementById('txteinfachesteuer').value = (parseFloat((Math.ceil(efftax * 20) / 20)).toFixed(2));
     document.getElementById('diveinfachesteuer').hidden = false;
 
 
-    gemeindesteuer = efftax * (dataGlobal[steuerjahr].find(item => item.Gemeinde === gemeinde).natPers / 100);
-    kantonssteuer = efftax * (dataGlobal[steuerjahr].find(item => item.Gemeinde === "Kanton").natPers / 100);
 
-    gemeindesteuer = (Math.ceil(gemeindesteuer * 20) / 20).toFixed(2)
-    kantonssteuer = (Math.ceil(kantonssteuer * 20) / 20).toFixed(2)
+
+    gemeindesteuer = (Math.ceil((efftax * (dataGlobal[steuerjahr].find(item => item.Gemeinde === gemeinde).natPers / 100)) * 20) / 20).toFixed(2)
+    kantonssteuer = (Math.ceil((efftax * (dataGlobal[steuerjahr].find(item => item.Gemeinde === "Kanton").natPers / 100)) * 20) / 20).toFixed(2)
 
     document.getElementById('txtkantonssteuer').value = kantonssteuer;
     document.getElementById('divkantonssteuer').hidden = false;
-
-
 
     document.getElementById('txtgemeindesteuer').value = gemeindesteuer;
     document.getElementById('divgemeindesteuer').hidden = false;
@@ -27,15 +24,17 @@ function showresults(efftax) {
         kirchensteuer = efftax * (selectedGemeinde[konfession] / 100);
         kirchensteuer = (Math.ceil(kirchensteuer * 20) / 20).toFixed(2)
 
-
-
         document.getElementById('txtkirchensteuer').value = kirchensteuer;
         document.getElementById('divkirchensteuer').hidden = false;
 
-        document.getElementById('txtefftax').value = (kantonssteuer + gemeindesteuer + kirchensteuer);
+        document.getElementById('txtefftax').value = (parseFloat(kantonssteuer) + parseFloat(gemeindesteuer) + parseFloat(kirchensteuer)).toFixed(2);
         document.getElementById('divtotalsteuer').hidden = false;
     } else {
-        document.getElementById('txtefftax').value = (kantonssteuer + gemeindesteuer);
+
+        document.getElementById('txtkirchensteuer').value = "";
+        document.getElementById('divkirchensteuer').hidden = true;
+
+        document.getElementById('txtefftax').value = (parseFloat(kantonssteuer) + parseFloat(gemeindesteuer)).toFixed(2);
         document.getElementById('divtotalsteuer').hidden = false;
     }
 
