@@ -1,102 +1,131 @@
-//Zuschlag:
-// Art. 120 Abs. 2 StG:
-// 2 Die gemäss Abs. 1 berechnete Steuer erhöht sich bei einer anrechenbaren Besitzesdauer von weniger
-// als 6 Monaten um 50 %
-// 6 - 12 Monate um 45 %
-// 1 - 1½ Jahren um 40 %
-// 1½ - 2 Jahren um 35 %
-// 2 - 2½ Jahren um 30 %
-// 2½ - 3 Jahren um 25 %
-// 3 - 3½ Jahren um 20 %
-// 3½ - 4 Jahren um 15 %
-// 4 - 4½ Jahren um 10 %
-// 4½ - 5 Jahren um 5 %
+function showresults(efftax) {
 
-// ermässigung
-// 6 Jahren um 5 %
-// 7 Jahren um 10 %
-// 8 Jahren um 15 %
-// 9 Jahren um 20 %
-// 10 Jahren um 25 %
-// 11 Jahren um 30 %
-// 12 Jahren um 35 %
-// 13 Jahren um 40 %
-// 14 Jahren um 45 %
-// 15 Jahren um 50 %
-// 16 Jahren um 55 %
-// 17 Jahren um 60 %
+    steuerjahr = document.getElementById('slsteuerjahr').value;
+    gemeinde = document.getElementById('slgemeinde').value;
+    konfession = document.getElementById('slkonfession').value;
+
+    document.getElementById('txteinfachesteuer').value = efftax;
+    document.getElementById('diveinfachesteuer').hidden = false;
 
 
-function calculateAddTax(steuerschuld, totalmonate) {
-    if (totalmonate < 6) { //ZUSCHLAG
-        endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.5))
-    } else if (totalmonate < 12) {
-        endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.45))
-    } else if (totalmonate < 18) {
-        endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.4))
-    } else if (totalmonate < 24) {
-        endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.35))
-    } else if (totalmonate < 30) {
-        endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.3))
-    } else if (totalmonate < 36) {
-        endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.25))
-    } else if (totalmonate < 42) {
-        endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.2))
-    } else if (totalmonate < 48) {
-        endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.15))
-    } else if (totalmonate < 54) {
-        endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.1))
-    } else if (totalmonate < 60) {
-        endresult = (parseInt(steuerschuld) + (parseInt(steuerschuld) * 0.05))
-    } else if (totalmonate < 72) { //ERMÄSSIGUNG ab 6 vollen Jahren
-        endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.00))
-    } else if (totalmonate < 84) {
-        endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.05))
-    } else if (totalmonate < 96) {
-        endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.10))
-    } else if (totalmonate < 108) {
-        endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.15))
-    } else if (totalmonate < 120) {
-        endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.20))
-    } else if (totalmonate < 132) {
-        endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.25))
-    } else if (totalmonate < 144) {
-        endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.30))
-    } else if (totalmonate < 156) {
-        endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.35))
-    } else if (totalmonate < 168) {
-        endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.40))
-    } else if (totalmonate < 180) {
-        endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.45))
-    } else if (totalmonate < 192) {
-        endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.5))
-    } else if (totalmonate < 204) {
-        endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.55))
-    } else if (totalmonate >= 204) {
-        endresult = (parseInt(steuerschuld) - (parseInt(steuerschuld) * 0.60))
+    gemeindesteuer = efftax * (dataGlobal[steuerjahr].find(item => item.Gemeinde === gemeinde).natPers / 100);
+    kantonssteuer = efftax * (dataGlobal[steuerjahr].find(item => item.Gemeinde === "Kanton").natPers / 100);
+
+    gemeindesteuer = (Math.ceil(gemeindesteuer * 20) / 20).toFixed(2)
+    kantonssteuer = (Math.ceil(kantonssteuer * 20) / 20).toFixed(2)
+
+    document.getElementById('txtkantonssteuer').value = kantonssteuer;
+    document.getElementById('divkantonssteuer').hidden = false;
+
+
+
+    document.getElementById('txtgemeindesteuer').value = gemeindesteuer;
+    document.getElementById('divgemeindesteuer').hidden = false;
+
+    if (konfession != "Andere") {
+        selectedGemeinde = dataGlobal[steuerjahr].find(item => item.Gemeinde === gemeinde);
+        kirchensteuer = efftax * (selectedGemeinde[konfession] / 100);
+        kirchensteuer = (Math.ceil(kirchensteuer * 20) / 20).toFixed(2)
+
+
+
+        document.getElementById('txtkirchensteuer').value = kirchensteuer;
+        document.getElementById('divkirchensteuer').hidden = false;
+
+        document.getElementById('txtefftax').value = (kantonssteuer + gemeindesteuer + kirchensteuer);
+        document.getElementById('divtotalsteuer').hidden = false;
+    } else {
+        document.getElementById('txtefftax').value = (kantonssteuer + gemeindesteuer);
+        document.getElementById('divtotalsteuer').hidden = false;
     }
 
-    endresult = (Math.round(endresult / 0.05) * 0.05).toFixed(2) // Auf 5 Rappen runden
-
-    return endresult; // Return the corresponding value if a match is found
 }
 
-async function calculatetax(amount, totalmonate) {
-    // Fetch the JSON data
-    const response = await fetch("./tarifs.json");
-    const json = await response.json();
+function calculatetax(amount, totalmonate) {
 
-    // Round up the amount to the nearest 100
-    amount = Math.ceil(amount / 100) * 100;
+    let tax = 0;
 
-    // let totalmonate = months
+    const ranges = [
+        { limit: 2000, rate: 0.02 },
+        { limit: 4000, rate: 0.04 },
+        { limit: 6000, rate: 0.06 },
+        { limit: 8000, rate: 0.08 },
+        { limit: 15000, rate: 0.10 },
+        { limit: 30000, rate: 0.12 },
+        { limit: 45000, rate: 0.14 },
+        { limit: 60000, rate: 0.16 },
+        { limit: 80000, rate: 0.18 },
+        { limit: 100000, rate: 0.20 }
+    ];
 
-    // Loop through the JSON data to find a matching amount
-    for (const element of json) {
-        if (amount == element[0]) {
-            return calculateAddTax(element[1], totalmonate)
+    const surcharges = [
+        { maxMonths: 6, rate: 0.50 },
+        { maxMonths: 12, rate: 0.45 },
+        { maxMonths: 18, rate: 0.40 },
+        { maxMonths: 24, rate: 0.35 },
+        { maxMonths: 30, rate: 0.30 },
+        { maxMonths: 36, rate: 0.25 },
+        { maxMonths: 42, rate: 0.20 },
+        { maxMonths: 48, rate: 0.15 },
+        { maxMonths: 54, rate: 0.10 },
+        { maxMonths: 60, rate: 0.05 }
+    ];
+
+    const discounts = [
+        { years: 6, rate: 0.05 },
+        { years: 7, rate: 0.10 },
+        { years: 8, rate: 0.15 },
+        { years: 9, rate: 0.20 },
+        { years: 10, rate: 0.25 },
+        { years: 11, rate: 0.30 },
+        { years: 12, rate: 0.35 },
+        { years: 13, rate: 0.40 },
+        { years: 14, rate: 0.45 },
+        { years: 15, rate: 0.50 },
+        { years: 16, rate: 0.55 },
+        { years: 17, rate: 0.60 }
+    ];
+
+    let remainingProfit = amount;
+    let ownershipYears = (totalmonate % 12);
+    let months = totalmonate
+
+    for (let i = 0; i < ranges.length; i++) {
+        if (remainingProfit <= 0) break;
+
+        const { limit, rate } = ranges[i];
+        const taxableAmount = Math.min(remainingProfit, limit - (i > 0 ? ranges[i - 1].limit : 0));
+        tax += taxableAmount * rate;
+        remainingProfit -= taxableAmount;
+    }
+
+    if (remainingProfit > 0) {
+        tax += remainingProfit * 0.15;
+    }
+
+    // Apply surcharges for ownership durations less than 5 years
+
+    if (months < 60) {
+        for (let i = 0; i < surcharges.length; i++) {
+            if (months <= surcharges[i].maxMonths) {
+                tax *= 1 + surcharges[i].rate;
+                break;
+            }
         }
     }
 
-    return "#Fehler bei der Berechnung#"; // Default return if no match is found
+    // Apply discounts for ownership durations 6 years or more
+    if (ownershipYears >= 6) {
+        for (let i = discounts.length - 1; i >= 0; i--) {
+            if (ownershipYears >= discounts[i].years) {
+                tax *= 1 - discounts[i].rate;
+                break;
+            }
+        }
+    }
+
+    return tax;
+
 }
+
+
