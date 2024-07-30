@@ -243,7 +243,7 @@
     ],
     "2023": [
         {
-            "Gemeinden": "Bargen",
+            "Gemeinde": "Bargen",
             "nat. Personen": "104",
             "jur. Personen": "104",
             "evang. ref.": "11",
@@ -251,7 +251,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Beggingen",
+            "Gemeinde": "Beggingen",
             "nat. Personen": "117",
             "jur. Personen": "95",
             "evang. ref.": "12",
@@ -259,7 +259,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Beringen",
+            "Gemeinde": "Beringen",
             "nat. Personen": "91",
             "jur. Personen": "91",
             "evang. ref.": "12",
@@ -267,7 +267,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Beringen (Guntmadingen)",
+            "Gemeinde": "Beringen (Guntmadingen)",
             "nat. Personen": "91",
             "jur. Personen": "91",
             "evang. ref.": "10",
@@ -275,7 +275,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Buch",
+            "Gemeinde": "Buch",
             "nat. Personen": "96",
             "jur. Personen": "96",
             "evang. ref.": "12",
@@ -283,7 +283,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Buchberg",
+            "Gemeinde": "Buchberg",
             "nat. Personen": "65",
             "jur. Personen": "50",
             "evang. ref.": "11",
@@ -291,7 +291,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Büttenhardt",
+            "Gemeinde": "Büttenhardt",
             "nat. Personen": "85",
             "jur. Personen": "85",
             "evang. ref.": "11",
@@ -299,7 +299,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Dörflingen",
+            "Gemeinde": "Dörflingen",
             "nat. Personen": "83",
             "jur. Personen": "83",
             "evang. ref.": "12",
@@ -307,7 +307,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Gächlingen",
+            "Gemeinde": "Gächlingen",
             "nat. Personen": "107",
             "jur. Personen": "107",
             "evang. ref.": "13",
@@ -315,7 +315,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Hallau",
+            "Gemeinde": "Hallau",
             "nat. Personen": "112",
             "jur. Personen": "112",
             "evang. ref.": "10",
@@ -323,7 +323,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Hemishofen",
+            "Gemeinde": "Hemishofen",
             "nat. Personen": "103",
             "jur. Personen": "103",
             "evang. ref.": "12.5",
@@ -331,7 +331,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Löhningen",
+            "Gemeinde": "Löhningen",
             "nat. Personen": "89",
             "jur. Personen": "89",
             "evang. ref.": "10",
@@ -339,7 +339,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Lohn",
+            "Gemeinde": "Lohn",
             "nat. Personen": "95",
             "jur. Personen": "95",
             "evang. ref.": "11",
@@ -347,7 +347,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Merishausen",
+            "Gemeinde": "Merishausen",
             "nat. Personen": "110",
             "jur. Personen": "102",
             "evang. ref.": "11",
@@ -355,7 +355,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Neuhausen",
+            "Gemeinde": "Neuhausen",
             "nat. Personen": "96",
             "jur. Personen": "97",
             "evang. ref.": "13",
@@ -363,7 +363,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Neunkirch",
+            "Gemeinde": "Neunkirch",
             "nat. Personen": "99",
             "jur. Personen": "89",
             "evang. ref.": "10",
@@ -371,7 +371,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Oberhallau",
+            "Gemeinde": "Oberhallau",
             "nat. Personen": "117",
             "jur. Personen": "117",
             "evang. ref.": "12",
@@ -379,7 +379,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Ramsen",
+            "Gemeinde": "Ramsen",
             "nat. Personen": "95",
             "jur. Personen": "95",
             "evang. ref.": "14",
@@ -387,7 +387,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Rüdlingen",
+            "Gemeinde": "Rüdlingen",
             "nat. Personen": "75",
             "jur. Personen": "70",
             "evang. ref.": "11",
@@ -395,7 +395,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Schaffhausen",
+            "Gemeinde": "Schaffhausen",
             "nat. Personen": "93",
             "jur. Personen": "93",
             "evang. ref.": "13",
@@ -403,7 +403,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Schaffhausen (Hemmetal)",
+            "Gemeinde": "Schaffhausen (Hemmetal)",
             "nat. Personen": "93",
             "jur. Personen": "93",
             "evang. ref.": "13",
@@ -411,7 +411,7 @@
             "christ. kath.": "0.5"
         },
         {
-            "Gemeinden": "Schleitheim",
+            "Gemeinde": "Schleitheim",
             "nat. Personen": "115",
             "jur. Personen": "105",
             "evang. ref.": "10",
@@ -419,7 +419,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Siblingen",
+            "Gemeinde": "Siblingen",
             "nat. Personen": "105",
             "jur. Personen": "105",
             "evang. ref.": "12",
@@ -427,7 +427,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Stein am Rhein",
+            "Gemeinde": "Stein am Rhein",
             "nat. Personen": "95",
             "jur. Personen": "95",
             "evang. ref.": "12.5",
@@ -435,7 +435,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Stein am Rhein (Burg)",
+            "Gemeinde": "Stein am Rhein (Burg)",
             "nat. Personen": "95",
             "jur. Personen": "95",
             "evang. ref.": "12",
@@ -443,7 +443,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Stetten",
+            "Gemeinde": "Stetten",
             "nat. Personen": "61",
             "jur. Personen": "49",
             "evang. ref.": "11",
@@ -451,7 +451,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Thayngen",
+            "Gemeinde": "Thayngen",
             "nat. Personen": "92",
             "jur. Personen": "92",
             "evang. ref.": "10",
@@ -459,7 +459,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Trasadingen",
+            "Gemeinde": "Trasadingen",
             "nat. Personen": "117",
             "jur. Personen": "102",
             "evang. ref.": "11",
@@ -467,7 +467,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Wilchingen",
+            "Gemeinde": "Wilchingen",
             "nat. Personen": "112",
             "jur. Personen": "112",
             "evang. ref.": "9",
@@ -475,7 +475,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Wilchingen (Osterfingen)",
+            "Gemeinde": "Wilchingen (Osterfingen)",
             "nat. Personen": "112",
             "jur. Personen": "112",
             "evang. ref.": "11",
@@ -483,7 +483,7 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinden": "Kanton",
+            "Gemeinde": "Kanton",
             "nat. Personen": "89",
             "jur. Personen": "97",
             "evang. ref.": "0",
