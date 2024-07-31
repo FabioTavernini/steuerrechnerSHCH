@@ -73,16 +73,33 @@ function showresults(efftax) {
     let roemKCount = validValues.filter(value => value === "roemK").length;
     let christKCount = validValues.filter(value => value === "christK").length;
     let evangRCount = validValues.filter(value => value === "evangR").length;
-    let ohneCount = validValues.filter(value => value === "ohne").length;
+    let ohneCount = validValues.filter(value => value === "Andere").length;
 
     // Calculate the tax for each konfession
     let roemKTax = (efftax * selectedGemeinde["roemK"] / 100 / sumValidValues) * roemKCount;
     let christKTax = (efftax * selectedGemeinde["christK"] / 100 / sumValidValues) * christKCount;
     let evangRTax = (efftax * selectedGemeinde["evangR"] / 100 / sumValidValues) * evangRCount;
-    let ohneTax = (efftax * selectedGemeinde["evangR"] / 100 / sumValidValues) * ohneCount;
+    let ohneTax = 0;
 
     let totalChurchTax = roemKTax + christKTax + evangRTax + ohneTax;
+    // Construct detailed tax breakdown
+    let breakdown = [];
+    if (roemKCount > 0) {
+        breakdown.push(`${roemKCount}x Röm. Katholisch, ${selectedGemeinde["roemK"]}%`);
+    }
+    if (christKCount > 0) {
+        breakdown.push(`${christKCount}x Christl. Katholisch, ${selectedGemeinde["christK"]}%`);
+    }
+    if (evangRCount > 0) {
+        breakdown.push(`${evangRCount}x Evang. Reformiert, ${selectedGemeinde["evangR"]}%`);
+    }
+    if (ohneCount > 0) {
+        breakdown.push(`${ohneCount}x Andere, 0%`);
+    }
 
+    lblkirchensteuer.innerText = `Kirchensteuer:
+     ${breakdown.join(", ")}`;
+    txtkirchensteuer.value = totalChurchTax.toFixed(2);
     divkirchensteuer.hidden = false;
 
 
@@ -223,7 +240,7 @@ function calculatetax(amount, totalmonate) {
         const { limit, rate } = ranges[i];
         const previousLimit = i > 0 ? ranges[i - 1].limit : 0;
         const taxableAmount = Math.min(amount, limit - previousLimit);
-        
+
         tax += taxableAmount * rate;
         amount -= taxableAmount;
 
