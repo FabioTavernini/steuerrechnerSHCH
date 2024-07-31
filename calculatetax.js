@@ -65,7 +65,7 @@ function showresults(efftax) {
         txtEffTax.value = (parseFloat(kantonssteuer) + parseFloat(gemeindesteuer)).toFixed(2);
         divTotalSteuer.hidden = false;
     }
-    
+
 }
 
 
@@ -151,7 +151,7 @@ function calculatetax(amount, totalmonate) {
         }
     }
 
-    return tax;
+    return (Math.floor(tax / 100) * 100);
 
 }
 

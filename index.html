@@ -77,41 +77,87 @@
                 </div>
             </div>
 
+
+
+
             <div class="form-group row">
-                <label for="slkonfession" class="col-sm-4 col-form-label">Konfession</label>
+                <label for="txtanzeigentuemer" class="col-sm-4 col-form-label">Anzahl Eigentümer</label>
                 <div class="input-group col-sm-4">
-                    <select class="custom-select" id="slkonfession" required>
-                        <option value="" selected>Bitte wählen</option>
-                        <option value="roemK">Röm. Katholisch</option>
-                        <option value="christK">Christl. Katholisch</option>
-                        <option value="evangR">Evang. Reformiert</option>
-                        <option value="Andere">Andere</option>
-                    </select>
+                    <input type="number" min="1" class="form-control" id="txtanzeigentuemer" placeholder="" required
+                        onchange="addeigentuemer(this)">
                 </div>
             </div>
 
-            <div class="form-group row">
-                <label for="zivilstand" class="col-sm-4 col-form-label">Zivilstand</label>
-                <div class="input-group col-sm-4" id="zivilstand">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="radiozivilstand" id="radioledig" checked
-                            onclick="toggledivkonfessionehe(this.value)" value="0">
-                        <label class="form-check-label" for="radioledig">
-                            Ledig
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="radiozivilstand" id="radioverheiratet"
-                            onclick="toggledivkonfessionehe(this.value)" value="1">
-                        <label class="form-check-label" for="radioverheiratet">
-                            Verheiratet
-                        </label>
-                    </div>
-                </div>
+
+
+
+            <div id="divkonfessionen">
+
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             <div class="form-group row" id="divkonfessionehe" hidden>
-                <label for="slkonfessionehe" class="col-sm-4 col-form-label">Konfession des Ehepartners</label>
+                <label for="slkonfessionehe" class="col-sm-4 col-form-label">Konfession</label>
                 <div class="input-group col-sm-4">
                     <select class="custom-select" id="slkonfessionehe">
                         <option value="" selected>Bitte wählen</option>
@@ -312,21 +358,83 @@
 
     }
 
-    function toggledivkonfessionehe(val) {
 
-        divkonfessionehe = document.getElementById('divkonfessionehe')
-        slkonfessionehe = document.getElementById('slkonfessionehe')
 
-        if (val == 1) {
-            divkonfessionehe.hidden = false
-            slkonfessionehe.value = "";
-            slkonfessionehe.required = true
-        } else {
-            divkonfessionehe.hidden = true
-            slkonfessionehe.value = "Andere";
-            slkonfessionehe.required = false
+
+
+
+
+
+    //removes the products in the given package  
+    function clearInputs() {
+        document.getElementById("divkonfessionen").innerHTML = "";
+    }
+
+    function addInput(id) {
+
+        var addList = document.getElementById('divkonfessionen');
+        var docstyle = addList.style.display;
+        if (docstyle == 'none') addList.style.display = '';
+
+
+
+        var text = document.createElement('div');
+        text.id = 'additem_' + id;
+        text.innerHTML += `<div class="form-group row" style="margin-left:1vw;">
+                    <label for="slkonfession" class="col-sm-4 col-form-label">` + "Konfession Eigentümer " + (id + 1) + `</label>
+                    <div class="input-group col-sm-4">
+                        <select class="custom-select" id="slkonfession" required>
+                            <option value="" selected>Bitte wählen</option>
+                            <option value="roemK">Röm. Katholisch</option>
+                            <option value="christK">Christl. Katholisch</option>
+                            <option value="evangR">Evang. Reformiert</option>
+                            <option value="Andere">Andere</option>
+                        </select>
+                    </div>
+                </div> `;
+
+        addList.appendChild(text);
+
+    }
+
+
+    function addeigentuemer(txtanzeigentuemer) {
+
+        divkonfessionen = document.getElementById('divkonfessionen');
+
+        console.log(txtanzeigentuemer.value)
+
+        if (txtanzeigentuemer.value == "") {
+            clearInputs();
+        } else if(txtanzeigentuemer.value >= 1 && txtanzeigentuemer.value <= 100) {
+            clearInputs();
+            counter = 0;
+            do {
+                addInput(counter);
+                counter++
+            } while (txtanzeigentuemer.value > counter);
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     function abschluss() {
 
