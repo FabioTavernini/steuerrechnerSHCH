@@ -23,7 +23,6 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="https://sh.ch/CMS/get/file/a73b9867-9e21-4bb0-8b33-2b95b092284f">
     <title>Steuerrechner</title>
@@ -92,13 +91,6 @@
                 </div>
             </div>
 
-
-
-
-
-
-
-
             <div class="form-group row">
                 <label for="zivilstand" class="col-sm-4 col-form-label">Zivilstand</label>
                 <div class="input-group col-sm-4" id="zivilstand">
@@ -119,9 +111,6 @@
                 </div>
             </div>
 
-
-
-
             <div class="form-group row" id="divkonfessionehe" hidden>
                 <label for="slkonfessionehe" class="col-sm-4 col-form-label">Konfession des Ehepartners</label>
                 <div class="input-group col-sm-4">
@@ -134,26 +123,6 @@
                     </select>
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             <div class="form-group row">
                 <label for="txtverkaufspreis" class="col-sm-4 col-form-label">Verkaufspreis</label>
@@ -228,6 +197,7 @@
                 </div>
             </div>
         </div>
+
         <div class="form-group row" id="divgemeindesteuer" hidden>
             <label for="txtgemeindesteuer" id="lblgemeindesteuer" class="col-sm-4 col-form-label">Anteil
                 Gemeindesteuer</label>
@@ -238,6 +208,7 @@
                 </div>
             </div>
         </div>
+
         <div class="form-group row" id="divkirchensteuer" hidden>
             <label for="txtkirchensteuer" id="lblkirchensteuer" class="col-sm-4 col-form-label">Anteil
                 Kirchensteuer</label>
@@ -345,11 +316,13 @@
     function toggledivkonfessionehe(val) {
 
         divkonfessionehe = document.getElementById('divkonfessionehe')
+        slkonfessionehe = document.getElementById('slkonfessionehe')
 
         if (val == 1) {
             divkonfessionehe.hidden = false
         } else {
             divkonfessionehe.hidden = true
+            slkonfessionehe.value = "";
         }
     }
 
