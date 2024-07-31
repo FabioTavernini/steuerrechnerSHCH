@@ -1,19 +1,18 @@
 function showresults(efftax) {
+    let steuerjahr = document.getElementById('slsteuerjahr').value;
+    let gemeinde = document.getElementById('slgemeinde').value;
+    let konfession = document.getElementById('slkonfession').value;
+    let konfessionehepartner = document.getElementById('slkonfessionehe').value;
 
-    steuerjahr = document.getElementById('slsteuerjahr').value;
-    gemeinde = document.getElementById('slgemeinde').value;
-    konfession = document.getElementById('slkonfession').value;
+    document.getElementById('lblkantonssteuer').innerText = "Anteil Kantonssteuer";
+    document.getElementById('lblgemeindesteuer').innerText = "Anteil Gemeindesteuer ";
+    document.getElementById('lblkirchensteuer').innerText = "Anteil Kirchensteuer";
 
-    document.getElementById('lblkantonssteuer').innerText = "Anteil Kantonssteuer"
-    document.getElementById('lblgemeindesteuer').innerText = "Anteil Gemeindesteuer "
-    document.getElementById('lblkirchensteuer').innerText = "Anteil Kirchensteuer"
-
-    
     document.getElementById('txteinfachesteuer').value = (parseFloat((Math.ceil(efftax * 20) / 20)).toFixed(2));
     document.getElementById('diveinfachesteuer').hidden = false;
 
-    gemeindesteuer = (Math.ceil((efftax * (dataGlobal[steuerjahr].find(item => item.Gemeinde === gemeinde).natPers / 100)) * 20) / 20).toFixed(2)
-    kantonssteuer = (Math.ceil((efftax * (dataGlobal[steuerjahr].find(item => item.Gemeinde === "Kanton").natPers / 100)) * 20) / 20).toFixed(2)
+    let gemeindesteuer = (Math.ceil((efftax * (dataGlobal[steuerjahr].find(item => item.Gemeinde === gemeinde).natPers / 100)) * 20) / 20).toFixed(2);
+    let kantonssteuer = (Math.ceil((efftax * (dataGlobal[steuerjahr].find(item => item.Gemeinde === "Kanton").natPers / 100)) * 20) / 20).toFixed(2);
 
     document.getElementById('txtkantonssteuer').value = kantonssteuer;
     document.getElementById('lblkantonssteuer').innerText += (" (" + (dataGlobal[steuerjahr].find(item => item.Gemeinde === "Kanton").natPers) + "%)");
@@ -23,30 +22,71 @@ function showresults(efftax) {
     document.getElementById('lblgemeindesteuer').innerText += (" (" + (dataGlobal[steuerjahr].find(item => item.Gemeinde === gemeinde).natPers) + "%)");
     document.getElementById('divgemeindesteuer').hidden = false;
 
-    if (konfession != "Andere") {
-        selectedGemeinde = dataGlobal[steuerjahr].find(item => item.Gemeinde === gemeinde);
-        kirchensteuer = efftax * (selectedGemeinde[konfession] / 100);
-        kirchensteuer = (Math.ceil(kirchensteuer * 20) / 20).toFixed(2)
 
-        console.log(selectedGemeinde[konfession])
 
-        document.getElementById('txtkirchensteuer').value = kirchensteuer;
-        document.getElementById('lblkirchensteuer').innerText += (" (" + (selectedGemeinde[konfession]) + "%)");
-        document.getElementById('divkirchensteuer').hidden = false;
 
-        document.getElementById('txtefftax').value = (parseFloat(kantonssteuer) + parseFloat(gemeindesteuer) + parseFloat(kirchensteuer)).toFixed(2);
-        document.getElementById('divtotalsteuer').hidden = false;
+
+
+
+
+
+
+
+
+
+
+
+
+    if (konfession != "Andere" || konfessionehepartner != "Andere") {
+
+        let selectedGemeinde = dataGlobal[steuerjahr].find(item => item.Gemeinde === gemeinde);
+
+        if (konfession == "Andere") {
+
+            kirchensteuer = (efftax / 2 * selectedGemeinde[konfessionehepartner] / 100)
+
+            document.getElementById('txtkirchensteuer').value = kirchensteuer;
+            document.getElementById('lblkirchensteuer').innerText += (" (" + selectedGemeinde[konfessionehepartner] + "%)");
+            document.getElementById('divkirchensteuer').hidden = false;
+
+            document.getElementById('txtefftax').value = (parseFloat(kantonssteuer) + parseFloat(gemeindesteuer) + parseFloat(kirchensteuer)).toFixed(2);
+            document.getElementById('divtotalsteuer').hidden = false;
+
+        } else if (konfessionehepartner == "Andere") {
+
+            kirchensteuer = (efftax / 2 * selectedGemeinde[konfession] / 100)
+
+            document.getElementById('txtkirchensteuer').value = kirchensteuer;
+            document.getElementById('lblkirchensteuer').innerText += (" (" + selectedGemeinde[konfession] + "%)");
+            document.getElementById('divkirchensteuer').hidden = false;
+
+            document.getElementById('txtefftax').value = (parseFloat(kantonssteuer) + parseFloat(gemeindesteuer) + parseFloat(kirchensteuer)).toFixed(2);
+            document.getElementById('divtotalsteuer').hidden = false;
+
+        } else {
+
+            kirchensteuer = ((efftax / 2 * selectedGemeinde[konfession] / 100) + (efftax / 2 * selectedGemeinde[konfessionehepartner] / 100))
+
+            document.getElementById('txtkirchensteuer').value = kirchensteuer;
+            document.getElementById('lblkirchensteuer').innerText += (" (" + selectedGemeinde[konfession] + "%) / (" + selectedGemeinde[konfessionehepartner] +"%)");
+            document.getElementById('divkirchensteuer').hidden = false;
+
+            document.getElementById('txtefftax').value = (parseFloat(kantonssteuer) + parseFloat(gemeindesteuer) + parseFloat(kirchensteuer)).toFixed(2);
+            document.getElementById('divtotalsteuer').hidden = false;
+        }
 
     } else {
 
-        document.getElementById('txtkirchensteuer').value = "";
+        console.log("else");
+
+        document.getElementById('txtkirchensteuer').value = "Andere";
         document.getElementById('divkirchensteuer').hidden = true;
 
         document.getElementById('txtefftax').value = (parseFloat(kantonssteuer) + parseFloat(gemeindesteuer)).toFixed(2);
         document.getElementById('divtotalsteuer').hidden = false;
     }
-
 }
+
 
 function calculatetax(amount, totalmonate) {
 

@@ -114,7 +114,7 @@
             <div class="form-group row" id="divkonfessionehe" hidden>
                 <label for="slkonfessionehe" class="col-sm-4 col-form-label">Konfession des Ehepartners</label>
                 <div class="input-group col-sm-4">
-                    <select class="custom-select" id="slkonfessionehe" required>
+                    <select class="custom-select" id="slkonfessionehe">
                         <option value="" selected>Bitte wählen</option>
                         <option value="roemK">Röm. Katholisch</option>
                         <option value="christK">Christl. Katholisch</option>
@@ -320,24 +320,27 @@
 
         if (val == 1) {
             divkonfessionehe.hidden = false
+            slkonfessionehe.value = "";
+            slkonfessionehe.required = true
         } else {
             divkonfessionehe.hidden = true
-            slkonfessionehe.value = "";
+            slkonfessionehe.value = "Andere";
+            slkonfessionehe.required = false
         }
     }
-
 
     function abschluss() {
 
         let taxableamount = document.getElementById('txtgrundstückgewinn').value; // define the taxable amount
         let jahre = Number(document.getElementById('txtjahre').value); // define number of years
         let monate = Number(document.getElementById('txtmonate').value);// define number of months
+        let konfessionehepartner = document.getElementById('slkonfessionehe').value;
 
         let totalmonths = (jahre * 12) + monate;
 
         let efftax = 0; // reset tax value
 
-        if (taxableamount != '' && (jahre != undefined) && (monate != undefined) && monate <= 11) {
+        if (taxableamount != '' && (jahre != undefined) && (monate != undefined) && monate <= 11 && konfessionehepartner != '') {
             if (taxableamount >= 5000) {
 
                 efftax = calculatetax(taxableamount, totalmonths); // result of calculatetax
