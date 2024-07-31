@@ -17,3 +17,8 @@ img{
 .labelcustom, #txtefftax{
     font-weight: bold;
 }
+
+#zivilstand{
+    display: flex;
+    justify-content: space-around;
+}

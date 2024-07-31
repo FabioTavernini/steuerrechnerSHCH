@@ -92,6 +92,69 @@
                 </div>
             </div>
 
+
+
+
+
+
+
+
+            <div class="form-group row">
+                <label for="zivilstand" class="col-sm-4 col-form-label">Zivilstand</label>
+                <div class="input-group col-sm-4" id="zivilstand">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="radiozivilstand" id="radioledig" checked
+                            onclick="toggledivkonfessionehe(this.value)" value="0">
+                        <label class="form-check-label" for="radioledig">
+                            Ledig
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="radiozivilstand" id="radioverheiratet"
+                            onclick="toggledivkonfessionehe(this.value)" value="1">
+                        <label class="form-check-label" for="radioverheiratet">
+                            Verheiratet
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="form-group row" id="divkonfessionehe" hidden>
+                <label for="slkonfessionehe" class="col-sm-4 col-form-label">Konfession des Ehepartners</label>
+                <div class="input-group col-sm-4">
+                    <select class="custom-select" id="slkonfessionehe" required>
+                        <option value="" selected>Bitte wählen</option>
+                        <option value="roemK">Röm. Katholisch</option>
+                        <option value="christK">Christl. Katholisch</option>
+                        <option value="evangR">Evang. Reformiert</option>
+                        <option value="Andere">Andere</option>
+                    </select>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <div class="form-group row">
                 <label for="txtverkaufspreis" class="col-sm-4 col-form-label">Verkaufspreis</label>
                 <div class="input-group col-sm-4">
@@ -153,10 +216,11 @@
             </div>
         </div>
 
-<br>
+        <br>
 
         <div class="form-group row" id="divkantonssteuer" hidden>
-            <label for="txtkantonssteuer" id="lblkantonssteuer" class="col-sm-4 col-form-label">Anteil Kantonssteuer</label>
+            <label for="txtkantonssteuer" id="lblkantonssteuer" class="col-sm-4 col-form-label">Anteil
+                Kantonssteuer</label>
             <div class="input-group col-sm-4">
                 <input type="text" class="form-control" id="txtkantonssteuer" placeholder="" disabled>
                 <div class="input-group-append">
@@ -165,7 +229,8 @@
             </div>
         </div>
         <div class="form-group row" id="divgemeindesteuer" hidden>
-            <label for="txtgemeindesteuer" id="lblgemeindesteuer" class="col-sm-4 col-form-label">Anteil Gemeindesteuer</label>
+            <label for="txtgemeindesteuer" id="lblgemeindesteuer" class="col-sm-4 col-form-label">Anteil
+                Gemeindesteuer</label>
             <div class="input-group col-sm-4">
                 <input type="text" class="form-control" id="txtgemeindesteuer" placeholder="" disabled>
                 <div class="input-group-append">
@@ -174,7 +239,8 @@
             </div>
         </div>
         <div class="form-group row" id="divkirchensteuer" hidden>
-            <label for="txtkirchensteuer" id="lblkirchensteuer" class="col-sm-4 col-form-label">Anteil Kirchensteuer</label>
+            <label for="txtkirchensteuer" id="lblkirchensteuer" class="col-sm-4 col-form-label">Anteil
+                Kirchensteuer</label>
             <div class="input-group col-sm-4">
                 <input type="text" class="form-control" id="txtkirchensteuer" placeholder="" disabled>
                 <div class="input-group-append">
@@ -275,6 +341,18 @@
         }
 
     }
+
+    function toggledivkonfessionehe(val) {
+
+        divkonfessionehe = document.getElementById('divkonfessionehe')
+
+        if (val == 1) {
+            divkonfessionehe.hidden = false
+        } else {
+            divkonfessionehe.hidden = true
+        }
+    }
+
 
     function abschluss() {
 
