@@ -1,4 +1,6 @@
 function showresults(efftax) {
+
+    // steuerjahr & gemeinde auslesen
     let steuerjahr = document.getElementById('slsteuerjahr').value;
     let gemeinde = document.getElementById('slgemeinde').value;
 
@@ -6,6 +8,7 @@ function showresults(efftax) {
     console.log("steuerjahr:", steuerjahr);
     console.log("gemeinde:", gemeinde);
 
+    // einlesen von divs, lbl's und txtXYZ feldern
     let diveinfachesteuer = document.getElementById("diveinfachesteuer");
     let txteinfachesteuer = document.getElementById("txteinfachesteuer");
     diveinfachesteuer.hidden = false
@@ -107,9 +110,11 @@ function showresults(efftax) {
 
 
 function calculatetax(amount, totalmonate) {
+    // nullen von bisherigem tax & setzen von besitzdauerJahren
     let tax = 0;
     let ownershipYears = Math.floor(totalmonate / 12);
 
+    // definieren von Steuerraten
     const ranges = [
         { limit: 2000, rate: 0.02 },
         { limit: 4000, rate: 0.04 },
@@ -123,6 +128,7 @@ function calculatetax(amount, totalmonate) {
         { limit: 100000, rate: 0.20 }
     ];
 
+    // definieren von zusatzgebühren (Abhängig von besitzdauer in monaten)
     const surcharges = [
         { maxMonths: 6, rate: 0.50 },
         { maxMonths: 12, rate: 0.45 },
@@ -136,6 +142,7 @@ function calculatetax(amount, totalmonate) {
         { maxMonths: 60, rate: 0.05 }
     ];
 
+    // rabatte abhängig von besitzdauerJahre
     const discounts = [
         { years: 6, rate: 0.05 },
         { years: 7, rate: 0.10 },
@@ -150,9 +157,6 @@ function calculatetax(amount, totalmonate) {
         { years: 16, rate: 0.55 },
         { years: 17, rate: 0.60 }
     ];
-
-    console.log("Initial Amount:", amount);
-    console.log("Total Months:", totalmonate);
 
     for (let i = 0; i < ranges.length; i++) {
         if (amount <= 0) break;
