@@ -127,12 +127,12 @@ function showresults(efftax) {
 
 }
 
-
-
 function calculatetax(amount, totalmonate) {
     // nullen von bisherigem tax & setzen von besitzdauerJahren
     let tax = 0;
     let ownershipYears = Math.floor(totalmonate / 12);
+
+    document.getElementById('lbleinfachesteuer').innerText = "Einfache Steuer"
 
     // definieren von Steuerraten
     const ranges = [
@@ -201,6 +201,8 @@ function calculatetax(amount, totalmonate) {
             if (totalmonate <= surcharges[i].maxMonths) {
                 tax *= 1 + surcharges[i].rate;
                 console.log(`Applied Surcharge: Rate = ${surcharges[i].rate}, Total Tax after Surcharge = ${tax}`);
+                document.getElementById('lbleinfachesteuer').innerText += ` 
+                Zuschlag: ${surcharges[i].rate * 100}%`
                 break;
             }
         }
@@ -211,6 +213,8 @@ function calculatetax(amount, totalmonate) {
             if (ownershipYears >= discounts[i].years) {
                 tax *= 1 - discounts[i].rate;
                 console.log(`Applied Discount: Rate = ${discounts[i].rate}, Total Tax after Discount = ${tax}`);
+                document.getElementById('lbleinfachesteuer').innerText += ` 
+                Abschlag: ${discounts[i].rate * 100}%`
                 break;
             }
         }
