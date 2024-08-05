@@ -125,7 +125,7 @@
             </div>
 
             <div class="form-group row">
-                <label for="txtgrundstückgewinn" class="col-sm-4 col-form-label">Grundstückgewinn</label>
+                <label for="txtgrundstückgewinn" class="col-sm-4 col-form-label">Grundstückgewinn <br> <small>(Abgerundet auf 100CHF)</small></label>
                 <div class="input-group col-sm-4">
                     <input type="text" class="form-control" id="txtgrundstückgewinn" placeholder="" required disabled>
                     <div class="input-group-append">
@@ -154,7 +154,8 @@
         </form>
 
         <div class="form-group row" id="diveinfachesteuer" hidden>
-            <label for="txteinfachesteuer" id="lbleinfachesteuer" class="col-sm-4 col-form-label">Einfache Steuer</label>
+            <label for="txteinfachesteuer" id="lbleinfachesteuer" class="col-sm-4 col-form-label">Einfache
+                Steuer</label>
             <div class="input-group col-sm-4">
                 <input type="text" class="form-control" id="txteinfachesteuer" placeholder="" disabled>
                 <div class="input-group-append">
@@ -203,8 +204,7 @@
         <div id="calculationResults"></div>
 
         <div class="form-group row" id="divtotalsteuer" hidden>
-            <label for="txtefftax" class="col-sm-4 col-form-label labelcustom">Total Grundstückgewinnsteuer
-                <small>(Abgerundet auf 100)</small></label>
+            <label for="txtefftax" class="col-sm-4 col-form-label labelcustom">Total Grundstückgewinnsteuer</label>
             <div class="input-group col-sm-4">
                 <input type="text" class="form-control" id="txtefftax" placeholder="" disabled>
                 <div class="input-group-append">
@@ -291,7 +291,7 @@
         erwerbspreis = Number(document.getElementById('txterwerbspreis').value);
 
         if (verkaufspreis != '' && erwerbspreis != '') {
-            document.getElementById('txtgrundstückgewinn').value = (parseFloat(verkaufspreis) - parseFloat(erwerbspreis)).toFixed(2);
+            document.getElementById('txtgrundstückgewinn').value = (Math.round((parseFloat(verkaufspreis) - parseFloat(erwerbspreis)) / 100) * 100).toFixed(2);
         }
     }
 
@@ -330,7 +330,7 @@
 
         if (txtanzeigentuemer.value == "") {
             clearInputs();
-        } else if (txtanzeigentuemer.value >= 1 && txtanzeigentuemer.value <= 100) {
+        } else if (txtanzeigentuemer.value >= 1 && txtanzeigentuemer.value <= 50) {
             clearInputs();
             counter = 0;
             do {

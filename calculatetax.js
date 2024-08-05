@@ -4,10 +4,6 @@ function showresults(efftax) {
     let steuerjahr = document.getElementById('slsteuerjahr').value;
     let gemeinde = document.getElementById('slgemeinde').value;
 
-    console.log("efftax in showresults:", efftax);
-    console.log("steuerjahr:", steuerjahr);
-    console.log("gemeinde:", gemeinde);
-
     // einlesen von divs, lbl's und txtXYZ feldern
     let diveinfachesteuer = document.getElementById("diveinfachesteuer");
     let txteinfachesteuer = document.getElementById("txteinfachesteuer");
@@ -119,11 +115,11 @@ function showresults(efftax) {
     // txtefftax.value = (Math.floor(((parseFloat(kantonssteuer) + parseFloat(gemeindesteuer) + parseFloat(totalChurchTax)) / 100) * 100).toLocaleString("de-CH", { minimumFractionDigits: 2 }))
 
     let totalTax = parseFloat(kantonssteuer) + parseFloat(gemeindesteuer) + parseFloat(totalChurchTax);
-    // Round down to the nearest 100
-    let roundedTax = Math.floor(totalTax / 100) * 100;
-    // Format the result
-    let finalTax = roundedTax.toLocaleString("de-CH", { minimumFractionDigits: 2 });
-    txtefftax.value = finalTax
+    // // Round down to the nearest 100
+    // let roundedTax = Math.floor(totalTax / 100) * 100;
+    // // Format the result
+    // let finalTax = roundedTax.toLocaleString("de-CH", { minimumFractionDigits: 2 });
+    txtefftax.value = totalTax.toLocaleString("de-CH", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
 }
 
@@ -132,7 +128,8 @@ function calculatetax(amount, totalmonate) {
     let tax = 0;
     let ownershipYears = Math.floor(totalmonate / 12);
 
-    document.getElementById('lbleinfachesteuer').innerText = "Einfache Steuer"
+    lbleinfachesteuer = document.getElementById('lbleinfachesteuer')
+    lbleinfachesteuer.innerText = "Einfache Steuer"
 
     // definieren von Steuerraten
     const ranges = [
@@ -195,14 +192,20 @@ function calculatetax(amount, totalmonate) {
         tax += amount * 0.15;
         console.log(`Remaining Amount: ${amount}, Additional Tax: ${amount * 0.15}`);
     }
+    // Append tax percentage to label
+    lbleinfachesteuer.innerText += ` 
+    (${(100 / (document.getElementById('txtgrundstückgewinn').value) * tax).toFixed(2)}%)`
 
     if (totalmonate < 60) {
         for (let i = 0; i < surcharges.length; i++) {
             if (totalmonate <= surcharges[i].maxMonths) {
+
+                lbleinfachesteuer.innerText += ` 
+                (Zuschlag: ${surcharges[i].rate * 100}%)`
+
                 tax *= 1 + surcharges[i].rate;
                 console.log(`Applied Surcharge: Rate = ${surcharges[i].rate}, Total Tax after Surcharge = ${tax}`);
-                document.getElementById('lbleinfachesteuer').innerText += ` 
-                (Zuschlag: ${surcharges[i].rate * 100}%)`
+
                 break;
             }
         }
@@ -211,10 +214,13 @@ function calculatetax(amount, totalmonate) {
     if (ownershipYears >= 6) {
         for (let i = discounts.length - 1; i >= 0; i--) {
             if (ownershipYears >= discounts[i].years) {
+
+                lbleinfachesteuer.innerText += `
+                (Abschlag: ${discounts[i].rate * 100}%)`
+
                 tax *= 1 - discounts[i].rate;
                 console.log(`Applied Discount: Rate = ${discounts[i].rate}, Total Tax after Discount = ${tax}`);
-                document.getElementById('lbleinfachesteuer').innerText += ` 
-                (Abschlag: ${discounts[i].rate * 100}%)`
+
                 break;
             }
         }
