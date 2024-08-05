@@ -202,7 +202,7 @@ function calculatetax(amount, totalmonate) {
                 tax *= 1 + surcharges[i].rate;
                 console.log(`Applied Surcharge: Rate = ${surcharges[i].rate}, Total Tax after Surcharge = ${tax}`);
                 document.getElementById('lbleinfachesteuer').innerText += ` 
-                Zuschlag: ${surcharges[i].rate * 100}%`
+                (Zuschlag: ${surcharges[i].rate * 100}%)`
                 break;
             }
         }
@@ -214,7 +214,7 @@ function calculatetax(amount, totalmonate) {
                 tax *= 1 - discounts[i].rate;
                 console.log(`Applied Discount: Rate = ${discounts[i].rate}, Total Tax after Discount = ${tax}`);
                 document.getElementById('lbleinfachesteuer').innerText += ` 
-                Abschlag: ${discounts[i].rate * 100}%`
+                (Abschlag: ${discounts[i].rate * 100}%)`
                 break;
             }
         }
