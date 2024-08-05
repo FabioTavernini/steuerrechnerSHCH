@@ -161,6 +161,14 @@
             "christK": "12.5"
         },
         {
+            "Gemeinde": "Schaffhausen (Hemmental)",
+            "natPers": "90",
+            "jurPers": "93",
+            "evangR": "13",
+            "roemK": "13",
+            "christK": "12.5"
+        },
+        {
             "Gemeinde": "Schleitheim",
             "natPers": "115",
             "jurPers": "105",
@@ -202,6 +210,14 @@
         },
         {
             "Gemeinde": "Thayngen",
+            "natPers": "92",
+            "jurPers": "92",
+            "evangR": "10",
+            "roemK": "13",
+            "christK": "12.5"
+        },
+        {
+            "Gemeinde": "Thayngen (Unterer Reiat)",
             "natPers": "92",
             "jurPers": "92",
             "evangR": "10",
@@ -403,12 +419,12 @@
             "christ. kath.": "12.5"
         },
         {
-            "Gemeinde": "Schaffhausen (Hemmetal)",
+            "Gemeinde": "Schaffhausen (Hemmental)",
             "nat. Personen": "93",
             "jur. Personen": "93",
             "evang. ref.": "13",
             "röm. kath.": "13",
-            "christ. kath.": "0.5"
+            "christ. kath.": "12.5"
         },
         {
             "Gemeinde": "Schleitheim",
@@ -452,6 +468,14 @@
         },
         {
             "Gemeinde": "Thayngen",
+            "nat. Personen": "92",
+            "jur. Personen": "92",
+            "evang. ref.": "10",
+            "röm. kath.": "13",
+            "christ. kath.": "12.5"
+        },
+        {
+            "Gemeinde": "Thayngen (Unterer Reiat)",
             "nat. Personen": "92",
             "jur. Personen": "92",
             "evang. ref.": "10",

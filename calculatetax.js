@@ -12,7 +12,7 @@ function showresults(efftax) {
     let diveinfachesteuer = document.getElementById("diveinfachesteuer");
     let txteinfachesteuer = document.getElementById("txteinfachesteuer");
     diveinfachesteuer.hidden = false
-    txteinfachesteuer.value = efftax;
+    txteinfachesteuer.value = efftax.toLocaleString("de-CH", { minimumFractionDigits: 2 });
 
     let txtkantonssteuer = document.getElementById("txtkantonssteuer");
     let lblkantonssteuer = document.getElementById("lblkantonssteuer");
@@ -26,13 +26,10 @@ function showresults(efftax) {
     let lblkirchensteuer = document.getElementById("lblkirchensteuer");
     let divkirchensteuer = document.getElementById("divkirchensteuer");
 
-
-
-
     let divTotalSteuer = document.getElementById('divtotalsteuer');
     let txtefftax = document.getElementById('txtefftax');
 
-
+    document.getElementById('hrtrenner').hidden = false;
 
     if (!txtkantonssteuer || !lblkantonssteuer || !divkantonssteuer ||
         !txtgemeindesteuer || !lblgemeindesteuer || !divgemeindesteuer ||
@@ -54,14 +51,14 @@ function showresults(efftax) {
         return;
     }
 
-    let gemeindesteuer = (Math.ceil((efftax * (selectedGemeinde.natPers / 100)) * 20) / 20).toFixed(2);
-    let kantonssteuer = (Math.ceil((efftax * (selectedKanton.natPers / 100)) * 20) / 20).toFixed(2);
+    let gemeindesteuer = (Math.ceil((efftax * (selectedGemeinde.natPers / 100)) * 20) / 20);
+    let kantonssteuer = (Math.ceil((efftax * (selectedKanton.natPers / 100)) * 20) / 20);
 
-    txtkantonssteuer.value = kantonssteuer;
+    txtkantonssteuer.value = kantonssteuer.toLocaleString("de-CH", { minimumFractionDigits: 2 });
     lblkantonssteuer.innerText += ` (${selectedKanton.natPers}%)`;
     divkantonssteuer.hidden = false;
 
-    txtgemeindesteuer.value = gemeindesteuer;
+    txtgemeindesteuer.value = gemeindesteuer.toLocaleString("de-CH", { minimumFractionDigits: 2 });
     lblgemeindesteuer.innerText += ` (${selectedGemeinde.natPers}%)`;
     divgemeindesteuer.hidden = false;
 
@@ -107,11 +104,11 @@ function showresults(efftax) {
     }
 
     lblkirchensteuer.innerText = `Kirchensteuer:
-     ${breakdown.join(", ")}`;
+     ${breakdown.join("/ ")}`;
 
 
     if (totalChurchTax > 0) {
-        txtkirchensteuer.value = totalChurchTax.toFixed(2);
+        txtkirchensteuer.value = totalChurchTax.toLocaleString("de-CH", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         divkirchensteuer.hidden = false;
     } else {
         txtkirchensteuer.value = 0;
@@ -119,7 +116,14 @@ function showresults(efftax) {
     }
 
     divTotalSteuer.hidden = false;
-    txtefftax.value = Math.floor(((parseFloat(kantonssteuer) + parseFloat(gemeindesteuer) + parseFloat(totalChurchTax)).toFixed(2)) / 100) * 100
+    // txtefftax.value = (Math.floor(((parseFloat(kantonssteuer) + parseFloat(gemeindesteuer) + parseFloat(totalChurchTax)) / 100) * 100).toLocaleString("de-CH", { minimumFractionDigits: 2 }))
+
+    let totalTax = parseFloat(kantonssteuer) + parseFloat(gemeindesteuer) + parseFloat(totalChurchTax);
+    // Round down to the nearest 100
+    let roundedTax = Math.floor(totalTax / 100) * 100;
+    // Format the result
+    let finalTax = roundedTax.toLocaleString("de-CH", { minimumFractionDigits: 2 });
+    txtefftax.value = finalTax
 
 }
 
@@ -212,7 +216,9 @@ function calculatetax(amount, totalmonate) {
         }
     }
 
-    let finalTax = Math.floor(tax / 100) * 100;
-    console.log("Final Tax:", finalTax);
-    return finalTax;
+    // let finalTax = Math.floor(tax / 100) * 100;
+    // console.log("Final Tax:", finalTax);
+    // return finalTax;
+
+    return tax.toFixed(2);
 }
