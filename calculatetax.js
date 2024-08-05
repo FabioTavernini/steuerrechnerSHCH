@@ -26,7 +26,13 @@ function showresults(efftax) {
     let lblkirchensteuer = document.getElementById("lblkirchensteuer");
     let divkirchensteuer = document.getElementById("divkirchensteuer");
 
+
+
+
     let divTotalSteuer = document.getElementById('divtotalsteuer');
+    let txtefftax = document.getElementById('txtefftax');
+
+
 
     if (!txtkantonssteuer || !lblkantonssteuer || !divkantonssteuer ||
         !txtgemeindesteuer || !lblgemeindesteuer || !divgemeindesteuer ||
@@ -102,8 +108,18 @@ function showresults(efftax) {
 
     lblkirchensteuer.innerText = `Kirchensteuer:
      ${breakdown.join(", ")}`;
-    txtkirchensteuer.value = totalChurchTax.toFixed(2);
-    divkirchensteuer.hidden = false;
+
+
+    if (totalChurchTax > 0) {
+        txtkirchensteuer.value = totalChurchTax.toFixed(2);
+        divkirchensteuer.hidden = false;
+    } else {
+        txtkirchensteuer.value = 0;
+        divkirchensteuer.hidden = true;
+    }
+
+    divTotalSteuer.hidden = false;
+    txtefftax.value = Math.floor(((parseFloat(kantonssteuer) + parseFloat(gemeindesteuer) + parseFloat(totalChurchTax)).toFixed(2)) / 100) * 100
 
 }
 
