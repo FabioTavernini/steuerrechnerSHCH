@@ -341,23 +341,22 @@
 
     function abschluss() {
         let taxableamount = document.getElementById('txtgrundstückgewinn').value; // define the taxable amount
-        let jahre = Number(document.getElementById('txtjahre').value); // define number of years
-        let monate = Number(document.getElementById('txtmonate').value); // define number of months
+        let jahreInput = document.getElementById('txtjahre').value; // Get the input value as string
+        let monateInput = document.getElementById('txtmonate').value; // Get the input value as string
+        let jahre = Number(jahreInput); // Convert to number
+        let monate = Number(monateInput); // Convert to number
 
-        let totalmonths = (jahre * 12) + monate;
-        console.log("Taxable Amount:", taxableamount);
-        console.log("Years:", jahre);
-        console.log("Months:", monate);
-        console.log("Total Months:", totalmonths);
+        if ((taxableamount !== '') &&
+            (jahreInput !== '' && !isNaN(jahre)) &&
+            (monateInput !== '' && !isNaN(monate)) &&
+            (monate <= 11)) {
 
-        if (taxableamount !== '' && !isNaN(jahre) && !isNaN(monate) && monate <= 11) {
-            let efftax = 0; // reset tax value
+            let efftax = 0; // Reset tax value
             if (taxableamount >= 5000) {
-                efftax = calculatetax(taxableamount, totalmonths); // result of calculatetax
-
+                let totalmonths = (jahre * 12) + monate;
+                efftax = calculatetax(taxableamount, totalmonths); // Result of calculatetax
             } else {
                 efftax = 0; // If less than 5000 -> 0
-
             }
             showresults(efftax);
         } else {
