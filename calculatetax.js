@@ -201,7 +201,7 @@ function calculatetax(amount, totalmonate) {
             if (totalmonate <= surcharges[i].maxMonths) {
 
                 lbleinfachesteuer.innerText += ` 
-                (Zuschlag: ${surcharges[i].rate * 100}%)`
+                (Zuschlag: ${(surcharges[i].rate * 100).toFixed(2)}%)`
 
                 tax *= 1 + surcharges[i].rate;
                 console.log(`Applied Surcharge: Rate = ${surcharges[i].rate}, Total Tax after Surcharge = ${tax}`);
@@ -216,7 +216,7 @@ function calculatetax(amount, totalmonate) {
             if (ownershipYears >= discounts[i].years) {
 
                 lbleinfachesteuer.innerText += `
-                (Abschlag: ${discounts[i].rate * 100}%)`
+                (Abschlag: ${(discounts[i].rate * 100).toFixed(2)}%)`
 
                 tax *= 1 - discounts[i].rate;
                 console.log(`Applied Discount: Rate = ${discounts[i].rate}, Total Tax after Discount = ${tax}`);
