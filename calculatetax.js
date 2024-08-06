@@ -8,8 +8,7 @@ function showresults(efftax) {
     let diveinfachesteuer = document.getElementById("diveinfachesteuer");
     let txteinfachesteuer = document.getElementById("txteinfachesteuer");
     diveinfachesteuer.hidden = false
-    txteinfachesteuer.value = efftax.toLocaleString("de-CH", { minimumFractionDigits: 2 });
-
+    txteinfachesteuer.value = efftax.toLocaleString("de-CH", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     let txtkantonssteuer = document.getElementById("txtkantonssteuer");
     let lblkantonssteuer = document.getElementById("lblkantonssteuer");
     let divkantonssteuer = document.getElementById("divkantonssteuer");
@@ -227,5 +226,6 @@ function calculatetax(amount, totalmonate) {
         }
     }
 
-    return (Math.ceil(tax / 20) * 20).toFixed(2);
+    // return (Math.ceil(tax / 20) * 20).toFixed(2);
+    return tax.toFixed(2)
 }
