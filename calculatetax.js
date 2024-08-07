@@ -124,6 +124,9 @@ function showresults(efftax) {
 }
 
 function calculatetax(amount, totalmonate) {
+
+    ogamount = amount;
+
     // nullen von bisherigem tax & setzen von besitzdauerJahren
     let tax = 0;
     let ownershipYears = Math.floor(totalmonate / 12);
@@ -193,8 +196,10 @@ function calculatetax(amount, totalmonate) {
         console.log(`Remaining Amount: ${amount}, Additional Tax: ${amount * 0.15}`);
     }
     // Append tax percentage to label
+    // lbleinfachesteuer.innerText += ` 
+    // (${(100 / (document.getElementById('txtgrundstückgewinn').value) * tax).toFixed(2)}%)`
     lbleinfachesteuer.innerText += ` 
-    (${(100 / (document.getElementById('txtgrundstückgewinn').value) * tax).toFixed(2)}%)`
+    (${(100 / (ogamount) * tax).toFixed(4)}%)`
 
     if (totalmonate < 60) {
         for (let i = 0; i < surcharges.length; i++) {

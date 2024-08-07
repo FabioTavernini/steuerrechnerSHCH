@@ -260,259 +260,259 @@
     "2023": [
         {
             "Gemeinde": "Bargen",
-            "nat. Personen": "104",
-            "jur. Personen": "104",
-            "evang. ref.": "11",
-            "röm. kath.": "13",
-            "christ. kath.": "12.5"
+            "natPers": "104",
+            "jurPers": "104",
+            "evangR": "11",
+            "roemK": "13",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Beggingen",
-            "nat. Personen": "117",
-            "jur. Personen": "95",
-            "evang. ref.": "12",
-            "röm. kath.": "15",
-            "christ. kath.": "12.5"
+            "natPers": "117",
+            "jurPers": "95",
+            "evangR": "12",
+            "roemK": "15",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Beringen",
-            "nat. Personen": "91",
-            "jur. Personen": "91",
-            "evang. ref.": "12",
-            "röm. kath.": "15",
-            "christ. kath.": "12.5"
+            "natPers": "91",
+            "jurPers": "91",
+            "evangR": "12",
+            "roemK": "15",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Beringen (Guntmadingen)",
-            "nat. Personen": "91",
-            "jur. Personen": "91",
-            "evang. ref.": "10",
-            "röm. kath.": "15",
-            "christ. kath.": "12.5"
+            "natPers": "91",
+            "jurPers": "91",
+            "evangR": "10",
+            "roemK": "15",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Buch",
-            "nat. Personen": "96",
-            "jur. Personen": "96",
-            "evang. ref.": "12",
-            "röm. kath.": "15",
-            "christ. kath.": "12.5"
+            "natPers": "96",
+            "jurPers": "96",
+            "evangR": "12",
+            "roemK": "15",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Buchberg",
-            "nat. Personen": "65",
-            "jur. Personen": "50",
-            "evang. ref.": "11",
-            "röm. kath.": "15",
-            "christ. kath.": "12.5"
+            "natPers": "65",
+            "jurPers": "50",
+            "evangR": "11",
+            "roemK": "15",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Büttenhardt",
-            "nat. Personen": "85",
-            "jur. Personen": "85",
-            "evang. ref.": "11",
-            "röm. kath.": "13",
-            "christ. kath.": "12.5"
+            "natPers": "85",
+            "jurPers": "85",
+            "evangR": "11",
+            "roemK": "13",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Dörflingen",
-            "nat. Personen": "83",
-            "jur. Personen": "83",
-            "evang. ref.": "12",
-            "röm. kath.": "13",
-            "christ. kath.": "12.5"
+            "natPers": "83",
+            "jurPers": "83",
+            "evangR": "12",
+            "roemK": "13",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Gächlingen",
-            "nat. Personen": "107",
-            "jur. Personen": "107",
-            "evang. ref.": "13",
-            "röm. kath.": "14",
-            "christ. kath.": "12.5"
+            "natPers": "107",
+            "jurPers": "107",
+            "evangR": "13",
+            "roemK": "14",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Hallau",
-            "nat. Personen": "112",
-            "jur. Personen": "112",
-            "evang. ref.": "10",
-            "röm. kath.": "14",
-            "christ. kath.": "12.5"
+            "natPers": "112",
+            "jurPers": "112",
+            "evangR": "10",
+            "roemK": "14",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Hemishofen",
-            "nat. Personen": "103",
-            "jur. Personen": "103",
-            "evang. ref.": "12.5",
-            "röm. kath.": "14",
-            "christ. kath.": "12.5"
+            "natPers": "103",
+            "jurPers": "103",
+            "evangR": "12.5",
+            "roemK": "14",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Löhningen",
-            "nat. Personen": "89",
-            "jur. Personen": "89",
-            "evang. ref.": "10",
-            "röm. kath.": "15",
-            "christ. kath.": "12.5"
+            "natPers": "89",
+            "jurPers": "89",
+            "evangR": "10",
+            "roemK": "15",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Lohn",
-            "nat. Personen": "95",
-            "jur. Personen": "95",
-            "evang. ref.": "11",
-            "röm. kath.": "13",
-            "christ. kath.": "12.5"
+            "natPers": "95",
+            "jurPers": "95",
+            "evangR": "11",
+            "roemK": "13",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Merishausen",
-            "nat. Personen": "110",
-            "jur. Personen": "102",
-            "evang. ref.": "11",
-            "röm. kath.": "13",
-            "christ. kath.": "12.5"
+            "natPers": "110",
+            "jurPers": "102",
+            "evangR": "11",
+            "roemK": "13",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Neuhausen",
-            "nat. Personen": "96",
-            "jur. Personen": "97",
-            "evang. ref.": "13",
-            "röm. kath.": "15",
-            "christ. kath.": "12.5"
+            "natPers": "96",
+            "jurPers": "97",
+            "evangR": "13",
+            "roemK": "15",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Neunkirch",
-            "nat. Personen": "99",
-            "jur. Personen": "89",
-            "evang. ref.": "10",
-            "röm. kath.": "14",
-            "christ. kath.": "12.5"
+            "natPers": "99",
+            "jurPers": "89",
+            "evangR": "10",
+            "roemK": "14",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Oberhallau",
-            "nat. Personen": "117",
-            "jur. Personen": "117",
-            "evang. ref.": "12",
-            "röm. kath.": "14",
-            "christ. kath.": "12.5"
+            "natPers": "117",
+            "jurPers": "117",
+            "evangR": "12",
+            "roemK": "14",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Ramsen",
-            "nat. Personen": "95",
-            "jur. Personen": "95",
-            "evang. ref.": "14",
-            "röm. kath.": "15",
-            "christ. kath.": "12.5"
+            "natPers": "95",
+            "jurPers": "95",
+            "evangR": "14",
+            "roemK": "15",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Rüdlingen",
-            "nat. Personen": "75",
-            "jur. Personen": "70",
-            "evang. ref.": "11",
-            "röm. kath.": "15",
-            "christ. kath.": "12.5"
+            "natPers": "75",
+            "jurPers": "70",
+            "evangR": "11",
+            "roemK": "15",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Schaffhausen",
-            "nat. Personen": "93",
-            "jur. Personen": "93",
-            "evang. ref.": "13",
-            "röm. kath.": "13",
-            "christ. kath.": "12.5"
+            "natPers": "93",
+            "jurPers": "93",
+            "evangR": "13",
+            "roemK": "13",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Schaffhausen (Hemmental)",
-            "nat. Personen": "93",
-            "jur. Personen": "93",
-            "evang. ref.": "13",
-            "röm. kath.": "13",
-            "christ. kath.": "12.5"
+            "natPers": "93",
+            "jurPers": "93",
+            "evangR": "13",
+            "roemK": "13",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Schleitheim",
-            "nat. Personen": "115",
-            "jur. Personen": "105",
-            "evang. ref.": "10",
-            "röm. kath.": "15",
-            "christ. kath.": "12.5"
+            "natPers": "115",
+            "jurPers": "105",
+            "evangR": "10",
+            "roemK": "15",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Siblingen",
-            "nat. Personen": "105",
-            "jur. Personen": "105",
-            "evang. ref.": "12",
-            "röm. kath.": "15",
-            "christ. kath.": "12.5"
+            "natPers": "105",
+            "jurPers": "105",
+            "evangR": "12",
+            "roemK": "15",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Stein am Rhein",
-            "nat. Personen": "95",
-            "jur. Personen": "95",
-            "evang. ref.": "12.5",
-            "röm. kath.": "14",
-            "christ. kath.": "12.5"
+            "natPers": "95",
+            "jurPers": "95",
+            "evangR": "12.5",
+            "roemK": "14",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Stein am Rhein (Burg)",
-            "nat. Personen": "95",
-            "jur. Personen": "95",
-            "evang. ref.": "12",
-            "röm. kath.": "14",
-            "christ. kath.": "12.5"
+            "natPers": "95",
+            "jurPers": "95",
+            "evangR": "12",
+            "roemK": "14",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Stetten",
-            "nat. Personen": "61",
-            "jur. Personen": "49",
-            "evang. ref.": "11",
-            "röm. kath.": "13",
-            "christ. kath.": "12.5"
+            "natPers": "61",
+            "jurPers": "49",
+            "evangR": "11",
+            "roemK": "13",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Thayngen",
-            "nat. Personen": "92",
-            "jur. Personen": "92",
-            "evang. ref.": "10",
-            "röm. kath.": "13",
-            "christ. kath.": "12.5"
+            "natPers": "92",
+            "jurPers": "92",
+            "evangR": "10",
+            "roemK": "13",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Thayngen (Unterer Reiat)",
-            "nat. Personen": "92",
-            "jur. Personen": "92",
-            "evang. ref.": "10",
-            "röm. kath.": "13",
-            "christ. kath.": "12.5"
+            "natPers": "92",
+            "jurPers": "92",
+            "evangR": "10",
+            "roemK": "13",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Trasadingen",
-            "nat. Personen": "117",
-            "jur. Personen": "102",
-            "evang. ref.": "11",
-            "röm. kath.": "14",
-            "christ. kath.": "12.5"
+            "natPers": "117",
+            "jurPers": "102",
+            "evangR": "11",
+            "roemK": "14",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Wilchingen",
-            "nat. Personen": "112",
-            "jur. Personen": "112",
-            "evang. ref.": "9",
-            "röm. kath.": "14",
-            "christ. kath.": "12.5"
+            "natPers": "112",
+            "jurPers": "112",
+            "evangR": "9",
+            "roemK": "14",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Wilchingen (Osterfingen)",
-            "nat. Personen": "112",
-            "jur. Personen": "112",
-            "evang. ref.": "11",
-            "röm. kath.": "14",
-            "christ. kath.": "12.5"
+            "natPers": "112",
+            "jurPers": "112",
+            "evangR": "11",
+            "roemK": "14",
+            "christK": "12.5"
         },
         {
             "Gemeinde": "Kanton",
-            "nat. Personen": "89",
-            "jur. Personen": "97",
-            "evang. ref.": "0",
-            "röm. kath.": "0",
-            "christ. kath.": "0"
+            "natPers": "89",
+            "jurPers": "97",
+            "evangR": "0",
+            "roemK": "0",
+            "christK": "0"
         }
     ]
 }
