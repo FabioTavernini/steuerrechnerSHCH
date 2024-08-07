@@ -289,40 +289,6 @@
 
     let grundstückgewinn;
 
-    // function calcGSG() {
-
-    //     vkpreis = document.getElementById("txtverkaufspreis")
-    //     vkpreistemp = Number(parseFloat(vkpreis.value))
-    //     console.log(vkpreistemp)
-
-    //     erwerbspreis = document.getElementById("txterwerbspreis")
-    //     erwerbspreistemp = Number(parseFloat(erwerbspreis.value))
-    //     console.log(erwerbspreistemp)
-
-
-    //     if (!isNaN(vkpreistemp) && !isNaN(erwerbspreistemp)) {
-
-    //         vkpreis.value = parseFloat(vkpreis.value).toLocaleString("de-CH", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-
-    //         erwerbspreis.value = erwerbspreistemp.toLocaleString("de-CH", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-
-    //         document.getElementById('txtgrundstückgewinn').value = (Math.round((parseFloat(vkpreistemp) - parseFloat(erwerbspreistemp)) / 100) * 100).toLocaleString("de-CH", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-
-    //         grundstückgewinn = vkpreistemp - erwerbspreistemp;
-
-    //     }
-
-    // }
-
-
-
-
-
-
-
-
-
-
     function parseLocaleNumber(localeString, locale) {
         const formatter = new Intl.NumberFormat(locale);
         const parts = formatter.formatToParts(12345.6); // Use a sample number for the format
@@ -368,60 +334,6 @@
             document.getElementById('txtgrundstückgewinn').value = grundstückgewinntemp.toLocaleString(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     function clearInputs() {
         document.getElementById("divkonfessionen").innerHTML = "";
