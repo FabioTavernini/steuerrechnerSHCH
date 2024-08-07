@@ -21,6 +21,9 @@ function showresults(efftax) {
     let lblkirchensteuer = document.getElementById("lblkirchensteuer");
     let divkirchensteuer = document.getElementById("divkirchensteuer");
 
+    let divkonfessionen = document.getElementById('divkonfessionen');
+    let konfessionselects = divkonfessionen.getElementsByTagName("select");
+
     let divTotalSteuer = document.getElementById('divtotalsteuer');
     let txtefftax = document.getElementById('txtefftax');
 
@@ -38,17 +41,21 @@ function showresults(efftax) {
     lblgemeindesteuer.innerText = "Anteil Gemeindesteuer";
     lblkirchensteuer.innerText = "Anteil Kirchensteuer";
 
+    // Daten für gewählte gemeinde/Kanton pro Jahr auslesen
     let selectedGemeinde = dataGlobal[steuerjahr].find(item => item.Gemeinde === gemeinde);
     let selectedKanton = dataGlobal[steuerjahr].find(item => item.Gemeinde === "Kanton");
 
+    // Fehlerausgabe falls nicht gefunden
     if (!selectedGemeinde || !selectedKanton) {
         console.error("Selected gemeinde or kanton data not found.");
         return;
     }
 
+    // definieren von gemeindesteuer & kantonssteuer anhand ausgewählter gemeinde + jahr
     let gemeindesteuer = (Math.ceil((efftax * (selectedGemeinde.natPers / 100)) * 20) / 20);
     let kantonssteuer = (Math.ceil((efftax * (selectedKanton.natPers / 100)) * 20) / 20);
 
+    // Anpassen des textfeldes & des labels für kantons/gemeindesteuern
     txtkantonssteuer.value = kantonssteuer.toLocaleString("de-CH", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     lblkantonssteuer.innerText += ` (${selectedKanton.natPers}%)`;
     divkantonssteuer.hidden = false;
@@ -57,9 +64,7 @@ function showresults(efftax) {
     lblgemeindesteuer.innerText += ` (${selectedGemeinde.natPers}%)`;
     divgemeindesteuer.hidden = false;
 
-    let divkonfessionen = document.getElementById('divkonfessionen');
-    let konfessionselects = divkonfessionen.getElementsByTagName("select");
-
+    // nullen von bisherigen werten
     let validValues = [];
     let sumValidValues = 0;
 
@@ -70,6 +75,8 @@ function showresults(efftax) {
             validValues.push(item.value);
         }
     });
+
+    // Befüllen von ANzahl konfessionen
 
     let roemKCount = validValues.filter(value => value === "roemK").length;
     let christKCount = validValues.filter(value => value === "christK").length;
@@ -98,11 +105,11 @@ function showresults(efftax) {
     if (ohneCount > 0) {
         breakdown.push(`${ohneCount}x Andere, 0%`);
     }
-
+    // Textanpassung des Kirchensteuer labels
     lblkirchensteuer.innerText = `Kirchensteuer:
      ${breakdown.join(" / ")}`;
 
-
+    // Falls kirchensteuer grösser als 0, anzeigen
     if (totalChurchTax > 0) {
         txtkirchensteuer.value = totalChurchTax.toLocaleString("de-CH", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         divkirchensteuer.hidden = false;
@@ -111,16 +118,22 @@ function showresults(efftax) {
         divkirchensteuer.hidden = true;
     }
 
-    divTotalSteuer.hidden = false;
 
+    // Total aller steuern berechnen
     let totalTax = parseFloat(kantonssteuer) + parseFloat(gemeindesteuer) + parseFloat(totalChurchTax);
     txtefftax.value = totalTax.toLocaleString("de-CH", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+    // Div aller steuern anzeigen nach berechnungen
+    divTotalSteuer.hidden = false;
+
+
 
 }
 
 function calculatetax(amount, totalmonate) {
 
-    ogamount = amount;
+    // amount in temp variable schreiben, später für lbleinfachesteuer verwendet (% ausrechnen mit original steuer wert)
+    let originalamount = amount;
 
     // nullen von bisherigem tax & setzen von besitzdauerJahren
     let tax = 0;
@@ -173,28 +186,31 @@ function calculatetax(amount, totalmonate) {
         { years: 17, rate: 0.60 }
     ];
 
+    // Steuer ausrechnen anhand gegebenen Tarifen
     for (let i = 0; i < ranges.length; i++) {
+
         if (amount <= 0) break;
 
         const { limit, rate } = ranges[i];
         const previousLimit = i > 0 ? ranges[i - 1].limit : 0;
         const taxableAmount = Math.min(amount, limit - previousLimit);
 
+        // Alle Raten "Abarbeiten" bis mit allen Tarifen durch
         tax += taxableAmount * rate;
         amount -= taxableAmount;
 
         console.log(`Range ${i + 1}: Limit = ${limit}, Rate = ${rate}, Taxable Amount = ${taxableAmount}, Accumulated Tax = ${tax}`);
     }
 
+    // Übriger Betrag (alles über den ersten 100'000 wird einheitlich mit 15% besteuert)
     if (amount > 0) {
         tax += amount * 0.15;
         console.log(`Remaining Amount: ${amount}, Additional Tax: ${amount * 0.15}`);
     }
+
     // Append tax percentage to label
-    // lbleinfachesteuer.innerText += ` 
-    // (${(100 / (document.getElementById('txtgrundstückgewinn').value) * tax).toFixed(2)}%)`
     lbleinfachesteuer.innerText += ` 
-    (${(100 / (ogamount) * tax).toFixed(4)}%)`
+    (${(100 / (originalamount) * tax).toFixed(4)}%)`
 
     if (totalmonate < 60) {
         for (let i = 0; i < surcharges.length; i++) {
