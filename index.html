@@ -381,7 +381,9 @@
     }
 
     function abschluss() {
-        let taxableamount = Number(document.getElementById('txtgrundstückgewinn').value); // define the taxable amount
+
+        let taxableamount = grundstückgewinn
+
         let jahreInput = document.getElementById('txtjahre').value; // Get the input value as string
         let monateInput = document.getElementById('txtmonate').value; // Get the input value as string
         let jahre = Number(jahreInput); // Convert to number
