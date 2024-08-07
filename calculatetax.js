@@ -76,8 +76,7 @@ function showresults(efftax) {
         }
     });
 
-    // Befüllen von ANzahl konfessionen
-
+    // Befüllen von Anzahl konfessionen
     let roemKCount = validValues.filter(value => value === "roemK").length;
     let christKCount = validValues.filter(value => value === "christK").length;
     let evangRCount = validValues.filter(value => value === "evangR").length;
