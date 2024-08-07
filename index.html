@@ -320,9 +320,6 @@
         const vkpreistemp = parseLocaleNumber(vkpreis.value, locale);
         const erwerbspreistemp = parseLocaleNumber(erwerbspreis.value, locale);
 
-        console.log(vkpreistemp);
-        console.log(erwerbspreistemp);
-
         if (!isNaN(vkpreistemp) && !isNaN(erwerbspreistemp)) {
             vkpreis.value = vkpreistemp.toLocaleString(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             erwerbspreis.value = erwerbspreistemp.toLocaleString(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 });

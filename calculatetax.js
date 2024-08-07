@@ -112,13 +112,8 @@ function showresults(efftax) {
     }
 
     divTotalSteuer.hidden = false;
-    // txtefftax.value = (Math.floor(((parseFloat(kantonssteuer) + parseFloat(gemeindesteuer) + parseFloat(totalChurchTax)) / 100) * 100).toLocaleString("de-CH", { minimumFractionDigits: 2 }))
 
     let totalTax = parseFloat(kantonssteuer) + parseFloat(gemeindesteuer) + parseFloat(totalChurchTax);
-    // // Round down to the nearest 100
-    // let roundedTax = Math.floor(totalTax / 100) * 100;
-    // // Format the result
-    // let finalTax = roundedTax.toLocaleString("de-CH", { minimumFractionDigits: 2 });
     txtefftax.value = totalTax.toLocaleString("de-CH", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
 }
