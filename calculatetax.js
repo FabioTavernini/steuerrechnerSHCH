@@ -124,9 +124,6 @@ function showresults(efftax) {
 
     // Div aller steuern anzeigen nach berechnungen
     divTotalSteuer.hidden = false;
-
-
-
 }
 
 function calculatetax(amount, totalmonate) {
