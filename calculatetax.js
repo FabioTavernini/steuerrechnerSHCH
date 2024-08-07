@@ -8,7 +8,7 @@ function showresults(efftax) {
     let diveinfachesteuer = document.getElementById("diveinfachesteuer");
     let txteinfachesteuer = document.getElementById("txteinfachesteuer");
     diveinfachesteuer.hidden = false
-    txteinfachesteuer.value = efftax.toLocaleString("de-CH", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    txteinfachesteuer.value = parseFloat(efftax).toLocaleString("de-CH", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     let txtkantonssteuer = document.getElementById("txtkantonssteuer");
     let lblkantonssteuer = document.getElementById("lblkantonssteuer");
     let divkantonssteuer = document.getElementById("divkantonssteuer");
