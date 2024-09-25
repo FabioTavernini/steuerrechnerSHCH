@@ -48,7 +48,7 @@ Dieses ist wie folgt aufgebaut:
             "christK": "12.5"
         },
 ```
-
+## :abacus: Berechnung & Ranges/Limits :slot_machine:
 Bei Formularabschluss wird im Javascript [calculatetax.js](./calculatetax.js) die zu bezahlende Steuer anhand den Gesetzlichen Limiten & den eingegebenen Daten berechnet.
 
 ```javascript
@@ -151,7 +151,7 @@ Eingebunden sind folgende JS & Css Files:
 </li>
 </ul>
 
-### Styles.css
+### :ribbon: Styles.css
 
 Einzig der overflow und wenige attribute werden manuell mit der Datei [styles.css](styles.css) gesteuert:
 
