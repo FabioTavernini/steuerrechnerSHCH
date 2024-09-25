@@ -47,7 +47,7 @@ Dieses ist wie folgt aufgebaut:
         },
 ```
 
-Bei Formularabschluss wird im Javascript [calculatetax.js](./calculatetax.js) die Steuer zu bezahlende Steuer anhand den Gesetzlichen Limiten & den eingegebenen Daten berechnet.
+Bei Formularabschluss wird im Javascript [calculatetax.js](./calculatetax.js) die zu bezahlende Steuer anhand den Gesetzlichen Limiten & den eingegebenen Daten berechnet.
 
 ```javascript
     // definieren von Steuerraten
