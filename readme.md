@@ -1,7 +1,7 @@
-# Grundstückgewinnsteuer - Rechner
+# :switzerland: Grundstückgewinnsteuer - Rechner
 Ein Web-Rechner für die Grundstückgewinnsteuer im Kanton Schaffhausen - [Steuerrechner](https://steuerrechner.sh.ch/grundstueckgewinn/) / [Steuerrechner Test](https://steuerrechner-test.sh.ch)
 
-# Funktion :rocket:
+# :rocket: Funktion
 Der Steuerrechner führt alle Berechnungen zur Steuer auf Client-Seite (über Javascript) aus! - kein Backend o.ä
 >[!Important]
 >Serverseiteiger Code wird nicht benötigt, da die Berechnungsgrundlagen öffentlich dargelegt werden müssen.
@@ -95,7 +95,7 @@ Bei Formularabschluss wird im Javascript [calculatetax.js](./calculatetax.js) di
     ];
 ```
 
-## Styling
+## :paintbrush: Styling
 Styling wird grösstenteils mit Bootstrap geregelt.
 Eingebunden sind folgende JS & Css Files:
 
@@ -188,7 +188,7 @@ hr {
 
 ```
 
-## Kontakt
+## :email: Kontakt
 ### Steuerverwaltung
 - [Informatik Steuerverwaltung](informatik.stv@sh.ch)
 - [Markus Schwyn](mailto:markus.schwyn@sh.ch)
