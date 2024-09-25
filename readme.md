@@ -9,9 +9,8 @@ Der Steuerrechner führt alle berechnungen zur Steuer auf Client-Seite aus! - ke
 
 Einerseits diente dieses [Kantonsblatt](./docs/sh-de.pdf) zur berechnung der Tarife, anderseits auch [diese Angaben](https://sh.ch/CMS/get/file/b665cf35-ca62-4439-b485-5a7391cd072d) aus dem Merkblatt, was dieser [Tabelle](https://sh.ch/CMS/get/file/ca0d9d0b-64f9-45fc-9754-a186094ed97e) entspricht.
 
-Die Tarife pro gemeinde und Konfession für das Formular werden aus [steuerfuesse.json](./steuerfuesse.json) befüllt.
-dieses ist folgendermassen aufgebaut:
-
+Die Tarife pro gemeinde und Konfession für das Formular werden aus [steuerfuesse.json](./steuerfuesse.json) befüllt. \
+Dieses ist wie folgt aufgebaut:
 
 ```json
 {
@@ -145,6 +144,45 @@ Eingebunden sind folgende JS & Css Files:
 ```
 </li>
 </ul>
+
+### Styles.css
+
+Einzig der overflow und wenige attribute werden manuell mit der Datei [styles.css](styles.css) gesteuert:
+
+```css
+body{
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    overflow-x: hidden;
+}
+
+img{
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+#custombutton{
+    text-align: center;
+}
+.labelcustom, #txtefftax{
+    font-weight: bold;
+}
+
+#zivilstand{
+    display: flex;
+    justify-content: space-around;
+}
+
+hr {
+    margin: 1rem 0;
+    color: inherit;
+    background-color: currentColor;
+    opacity: 0.25;
+  }
+
+```
 
 ## Kontakt
 ### Steuerverwaltung
