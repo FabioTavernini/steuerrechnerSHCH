@@ -12,7 +12,7 @@ Der Steuerrechner führt alle Berechnungen zur Steuer auf Client-Seite (über Ja
 >[!Note]
 >Auf dem Plesk wurde für https://steuerrechner.sh.ch/grundstueckgewinn/ eine Exception eingerichtet.
 
-## Tarifberechnung
+## :abacus: Tarifberechnung
 Einerseits diente dieses [Kantonsblatt](./docs/sh-de.pdf) zur berechnung der Tarife, anderseits auch [diese Angaben](https://sh.ch/CMS/get/file/b665cf35-ca62-4439-b485-5a7391cd072d) aus dem Merkblatt, was dieser [Tabelle](https://sh.ch/CMS/get/file/ca0d9d0b-64f9-45fc-9754-a186094ed97e) entspricht.
 
 Die Tarife pro Gemeinde und Konfession für das Formular werden aus [steuerfuesse.json](./steuerfuesse.json) befüllt & berechnet. \
@@ -48,7 +48,7 @@ Dieses ist wie folgt aufgebaut:
             "christK": "12.5"
         },
 ```
-## :abacus: Berechnung & Ranges/Limits :slot_machine:
+### Berechnung & Ranges/Limits :game_die:
 Bei Formularabschluss wird im Javascript [calculatetax.js](./calculatetax.js) die zu bezahlende Steuer anhand den Gesetzlichen Limiten & den eingegebenen Daten berechnet.
 
 ```javascript
