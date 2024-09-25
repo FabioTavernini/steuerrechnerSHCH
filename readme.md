@@ -8,7 +8,7 @@ Der Steuerrechner führt alle Berechnungen zur Steuer auf Client-Seite (über Ja
 >[!Important]
 >Serverseiteiger Code wird nicht benötigt, da die Berechnungsgrundlagen öffentlich dargelegt werden müssen.
 
-## Nginx rule
+## :globe_with_meridians: Nginx rule
 >[!Note]
 >Auf dem Plesk wurde für https://steuerrechner.sh.ch/grundstueckgewinn/ eine Exception eingerichtet.
 
