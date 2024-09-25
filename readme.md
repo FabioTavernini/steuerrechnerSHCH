@@ -1,15 +1,18 @@
 # Grundstückgewinnsteuer - Rechner
-
-Ein web-rechner für die Grundstückgewinnsteuer im Kanton Schaffhausen - [Steuerrechner](https://steuerrechner.sh.ch/grundstueckgewinn/) / [Steuerrechner Test](https://steuerrechner-test.sh.ch)
+Ein Web-Rechner für die Grundstückgewinnsteuer im Kanton Schaffhausen - [Steuerrechner](https://steuerrechner.sh.ch/grundstueckgewinn/) / [Steuerrechner Test](https://steuerrechner-test.sh.ch)
 
 # Funktion
-Der Steuerrechner führt alle berechnungen zur Steuer auf Client-Seite aus! - kein Backend o.ä
+Der Steuerrechner führt alle Berechnungen zur Steuer auf Client-Seite (über Javascript) aus! - kein Backend o.ä
+>[!Important]
+>Serverseiteiger Code wird nicht benötigt, da die Berechnungsgrundlagen öffentlich dargelegt werden müssen.
+
+## Nginx rule
+Auf dem Plesk wurde für https://steuerrechner.sh.ch/grundstueckgewinn/ eine Exception eingerichtet.
 
 ## Tarifberechnung
-
 Einerseits diente dieses [Kantonsblatt](./docs/sh-de.pdf) zur berechnung der Tarife, anderseits auch [diese Angaben](https://sh.ch/CMS/get/file/b665cf35-ca62-4439-b485-5a7391cd072d) aus dem Merkblatt, was dieser [Tabelle](https://sh.ch/CMS/get/file/ca0d9d0b-64f9-45fc-9754-a186094ed97e) entspricht.
 
-Die Tarife pro gemeinde und Konfession für das Formular werden aus [steuerfuesse.json](./steuerfuesse.json) befüllt. \
+Die Tarife pro Gemeinde und Konfession für das Formular werden aus [steuerfuesse.json](./steuerfuesse.json) befüllt & berechnet. \
 Dieses ist wie folgt aufgebaut:
 
 ```json
@@ -43,7 +46,7 @@ Dieses ist wie folgt aufgebaut:
         },
 ```
 
-Danach wird im Javascript [calculatetax.js](./calculatetax.js) die Steuer anhand den Gesetzlichen Limiten berechnet
+Bei Formularabschluss wird im Javascript [calculatetax.js](./calculatetax.js) die Steuer zu bezahlende Steuer anhand den Gesetzlichen Limiten & den eingegebenen Daten berechnet.
 
 ```javascript
     // definieren von Steuerraten
@@ -180,7 +183,7 @@ hr {
     color: inherit;
     background-color: currentColor;
     opacity: 0.25;
-  }
+}
 
 ```
 
