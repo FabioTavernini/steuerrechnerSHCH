@@ -48,7 +48,7 @@ Dieses ist wie folgt aufgebaut:
             "christK": "12.5"
         },
 ```
-### Berechnung & Ranges/Limits :microscope:
+### :microscope: Berechnung & Ranges/Limits 
 Bei Formularabschluss wird im Javascript [calculatetax.js](./calculatetax.js) die zu bezahlende Steuer anhand den Gesetzlichen Limiten & den eingegebenen Daten berechnet.
 
 ```javascript
@@ -189,6 +189,15 @@ hr {
 }
 
 ```
+
+## :desktop_computer: Browser Support
+Mit folgenden Browsern wurde bereits getestet:
+
+- Chrome (latest version)
+- Firefox (latest version)
+- Firefox-Mobile (latest version)
+- Microsoft Edge (latest version)
+- Opera (latest version)
 
 ## :email: Kontakt
 ### Steuerverwaltung
