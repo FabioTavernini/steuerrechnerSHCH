@@ -1,7 +1,7 @@
 # :switzerland: Grundstückgewinnsteuer - Rechner
 Ein Web-Rechner für die Grundstückgewinnsteuer im Kanton Schaffhausen - [Steuerrechner](https://steuerrechner.sh.ch/grundstueckgewinn/) / [Steuerrechner Test](https://steuerrechner-test.sh.ch)
 
-# :rocket: Funktion
+# :racing_car: Funktion
 Der Steuerrechner führt alle Berechnungen zur Steuer auf Client-Seite (über Javascript) aus! - kein Backend o.ä
 >[!Important]
 >Serverseiteiger Code wird nicht benötigt, da die Berechnungsgrundlagen öffentlich dargelegt werden müssen.
