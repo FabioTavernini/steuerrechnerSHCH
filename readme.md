@@ -48,7 +48,7 @@ Dieses ist wie folgt aufgebaut:
             "christK": "12.5"
         },
 ```
-### Berechnung & Ranges/Limits :game_die:
+### Berechnung & Ranges/Limits :microscope:
 Bei Formularabschluss wird im Javascript [calculatetax.js](./calculatetax.js) die zu bezahlende Steuer anhand den Gesetzlichen Limiten & den eingegebenen Daten berechnet.
 
 ```javascript
